@@ -1,0 +1,13 @@
+{
+  "name": "signalforge",
+  "owner": {
+    "name": "Mauricio Alonso Moya Tapia"
+  },
+  "plugins": [
+    {
+      "name": "signalforge",
+      "source": "./",
+      "description": "Research public signals with reproducible offline analytics"
+    }
+  ]
+}
