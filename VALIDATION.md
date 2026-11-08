@@ -1,6 +1,6 @@
 # Validation
 
-Local development baseline, 2026-11-08: 15/15 tests passed on the source prototype with synthetic and adversarial fixtures. GitHub CI has not yet been observed for the published branch. Any changes between local prototype and hosted source must be validated by CI.
+GitHub Actions validation, 2026-11-08: 23/23 tests passed with synthetic video fixtures and mocked GitHub public API responses. The discovery branch's tests passed in GitHub Actions; final merged-main CI remains to be checked. Any changes between local prototype and hosted source must be validated by CI.
 
 Not run: live GitHub install, Claude trigger recall, LLM ablation eval, signed release verification, OpenSSF Scorecard, OpenSSF Best Practices review.
 
