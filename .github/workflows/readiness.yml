@@ -24,4 +24,5 @@ jobs:
       - name: Report measured score without claiming ship-ready
         env:
           FORGE_SCORE: ${{ steps.forge.outputs.score }}
-        run: |\n          echo "Skill Forger E2E measured readiness score: ${FORGE_SCORE}/100; release gates are separate."
+        run: |
+          echo "Skill Forger E2E measured readiness score: ${FORGE_SCORE}/100; release gates are separate."
