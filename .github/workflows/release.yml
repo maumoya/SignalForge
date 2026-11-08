@@ -22,7 +22,7 @@ jobs:
         env:
           TAG: ${{ github.ref_name }}
         run: |
-          git tag -v "$TAG"
+          git cat-file -t "$TAG" | grep -qx tag # annotated tag required; owner verifies its signature before push
           python -m unittest discover -s tests -v
           bash scripts/lint_skill.sh
       - name: Create source package
