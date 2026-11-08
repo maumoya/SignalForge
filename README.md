@@ -77,7 +77,7 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 {
   "items": [
     {
-      "url": "https://youtube.com/shorts/example",
+      "url": "https://www.youtube.com/",
       "platform": "youtube",
       "creator": "creator-a",
       "title": "Example short",
@@ -141,6 +141,28 @@ No. It is an observed relative outlier in the sample. Platform view definitions,
 
 ### Can it install a GitHub library or change VISION automatically?
 No. SignalForge produces read-only `investigate-only` leads. Any downstream VISION adapter must preserve Reward Radar's independent risk scoring and owner approval.
+
+### Can I use this as a GitHub Action?
+
+Yes. On GitHub CI you can validate a JSON dataset without downloading or running external code:
+
+```yaml
+name: Check public signals
+on: [pull_request]
+permissions: read-all
+jobs:
+  signals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: maumoya/SignalForge@main
+        with:
+          dataset: examples/sample.json
+```
+
+Pin the Action to a verified immutable commit SHA in production. The self-test in CI proves that valid data pass and unsafe-only data fail. GitHub Marketplace listing is a separate publication step.
 
 ### Is it security-certified?
 No. OpenSSF Scorecard is independently evaluated, but Best Practices and a signed public release have not been completed.

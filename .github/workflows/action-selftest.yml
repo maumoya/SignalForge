@@ -1,0 +1,36 @@
+name: Dataset action self-test
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions: read-all
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Action accepts a well-formed synthetic fixture
+        id: good
+        uses: ./
+        with:
+          dataset: examples/sample.json
+      - name: Assert positive case
+        env:
+          COUNT: ${{ steps.good.outputs.items }}
+        run: test "$COUNT" -ge 1
+      - name: Build intentionally rejected input
+        run: |
+          printf '{"items":[{"url":"file:///etc/passwd","platform":"youtube","title":"bad","creator":"x","views":1}]}' > "$RUNNER_TEMP/invalid.json"
+          cp "$RUNNER_TEMP/invalid.json" invalid.json
+      - name: Action rejects unsafe-only input
+        id: bad
+        continue-on-error: true
+        uses: ./
+        with:
+          dataset: invalid.json
+      - name: Assert rejection was a failure
+        env:
+          RESULT: ${{ steps.bad.outcome }}
+        run: test "$RESULT" = "failure"

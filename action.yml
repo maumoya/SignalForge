@@ -1,0 +1,46 @@
+name: SignalForge dataset check
+description: Validate and summarize public signal metadata in GitHub Actions without network access or installing dependencies.
+author: Mauricio Moya
+branding:
+  icon: activity
+  color: purple
+inputs:
+  dataset:
+    description: JSON file in the checked-out repository to validate.
+    required: true
+    default: examples/sample.json
+outputs:
+  items:
+    description: Accepted public metadata records.
+    value: ${{ steps.inspect.outputs.items }}
+  topics:
+    description: Number of grouped topics.
+    value: ${{ steps.inspect.outputs.topics }}
+runs:
+  using: composite
+  steps:
+    - name: Validate public signal dataset
+      id: inspect
+      shell: bash
+      env:
+        DATASET_FILE: ${{ inputs.dataset }}
+        SIGNALFORGE_ROOT: ${{ github.action_path }}
+      run: |
+        python3 - "$DATASET_FILE" <<'PY'
+        import json, os, pathlib, sys
+        sys.path.insert(0, os.environ["SIGNALFORGE_ROOT"])
+        from signalforge.core import analyze, SignalError
+        path = pathlib.Path(sys.argv[1])
+        if not path.is_file() or path.is_symlink() or path.stat().st_size > 15 * 1024 * 1024:
+            raise SystemExit("FAIL: dataset missing, symlink, or larger than 15 MiB")
+        try:
+            report = analyze(json.loads(path.read_text(encoding="utf-8")))
+        except (ValueError, OSError, SignalError) as exc:
+            raise SystemExit("FAIL: dataset rejected: " + type(exc).__name__)
+        if not report["items"]:
+            raise SystemExit("FAIL: no accepted public HTTPS content records")
+        counts = (len(report["items"]), len(report["topics"]))
+        print("PASS: %d accepted metadata records, %d topics; no HTTP or subprocess" % counts)
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+            out.write("items=%d\ntopics=%d\n" % counts)
+        PY
