@@ -1,13 +1,13 @@
 {
   "name": "signalforge",
   "owner": {
-    "name": "Mauricio Alonso Moya Tapia"
+    "name": "Mauricio Moya"
   },
   "plugins": [
     {
       "name": "signalforge",
       "source": "./",
-      "description": "Research public signals with reproducible offline analytics"
+      "description": "Analyze social signals with explainable offline evidence, then investigate safely"
     }
   ]
 }
