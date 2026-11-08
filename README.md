@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude%20Code-skill%20%2B%20plugin-7c5cfc" alt="Claude Code skill and plugin">
-  <a href="#results-measured-2026-11-08"><img src="https://img.shields.io/badge/offline%20unit%20tests-15%2F15-2da44e" alt="15 of 15 offline unit tests passed"></a>
+  <a href="#results-measured-2026-11-08"><img src="https://img.shields.io/badge/offline%20unit%20tests-23%2F23-2da44e" alt="23 of 23 offline unit tests passed"></a>
   <a href="https://github.com/maumoya/SignalForge/actions/workflows/test.yml"><img src="https://github.com/maumoya/SignalForge/actions/workflows/test.yml/badge.svg" alt="GitHub CI tests"></a>
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/Open%20Source-OSI%20approved-3DA639?logo=opensourceinitiative&amp;logoColor=white" alt="OSI-approved open source license"></a>
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="#results-measured-2026-11-08"><img src="assets/bench-card.svg" width="760" alt="Synthetic validation: 15/15 Python unit tests passed and zero required runtime libraries. This is not an LLM benchmark."></a>
+  <a href="#results-measured-2026-11-08"><img src="assets/bench-card.svg" width="760" alt="Synthetic validation: 23/23 Python unit tests passed and zero required runtime libraries. This is not an LLM benchmark."></a>
 </p>
 
 # SignalForge
@@ -27,7 +27,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.1 development foundation):** analyzes user-provided JSON metadata **offline**. Native YouTube, Instagram, TikTok and GitHub data collection, longitudinal growth measurements and live VISION integration are **not implemented yet**. The GIF and 8× example use synthetic data.
+> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, plus an **opt-in, read-only public GitHub repository search**. Native YouTube, Instagram, TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The GIF and 8× example use synthetic data.
 
 ## Install
 
@@ -49,6 +49,13 @@ python -m signalforge examples/sample.json --out report.json
 python -m signalforge examples/sample.json --candidates --out leads.json
 ```
 
+**Opt-in public GitHub discovery (sends only your search phrase to GitHub):**
+```bash
+python -m signalforge.discovery "local ai coding agents" --limit 10
+python -m signalforge.discovery "local ai coding agents" --limit 10 --candidates --out github-leads.json
+```
+This mode makes one unauthenticated HTTPS request to the fixed public GitHub API. No API key or extra dependency. Public repo stars, forks and recency produce *research attention* signals, never a security or ROI rating. See [public GitHub collector documentation](skills/signalforge/references/github-discovery.md).
+
 The repository is public, but a real Claude Code plugin installation and trigger/ablation benchmark have **not** been recorded yet.
 
 ## See the difference
@@ -66,7 +73,7 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 
 | Stage | SignalForge does | Why it matters |
 |---|---|---|
-| **01 Discover** | Loads authorized public-content metadata from JSON | Independent, inspectable inputs |
+| **01 Discover** | Loads video JSON offline or optionally searches public GitHub repos | Independent, inspectable inputs |
 | **02 Validate** | Checks URLs and data; deduplicates; compares same-creator neighbor medians | A small creator's outlier can matter |
 | **03 Prioritize** | Ranks repeat topics using creator breadth and relative performance | Repeatability matters more than one viral clip |
 | **04 Handoff** | Exports versioned `investigate-only` candidates | Other agents can review findings without auto-installing anything |
@@ -89,15 +96,15 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 }
 ```
 
-Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier. No HTTP requests are made by the offline engine.
+Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier. No HTTP requests are made by the offline **video** engine.
 
 ## Results (measured 2026-11-08)
 
-**What we actually tested:** the Python 3 standard-library core with synthetic video fixtures and adversarial input cases. GitHub Actions tests, lint and CodeQL completed successfully on the initial public implementation. The 15 tests include creator-relative baseline, sparse data, deduplication, public/private URL handling, inert hostile titles, owner approval gates and no-overwrite outputs.
+**What we actually tested:** the Python 3 standard-library core with synthetic video fixtures, mocked GitHub API responses and adversarial input cases. GitHub Actions tests and lint completed successfully on the public discovery branch. The 23 tests include creator-relative baseline, sparse data, deduplication, public/private URL handling, inert hostile titles, owner approval gates, no-overwrite outputs, GitHub public API origin checks, redirect rejection and read-only public repository leads.
 
 | Check | Observed result | Evidence |
 |---|---|---|
-| Python unit tests | **15/15 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/test_core.py) |
+| Python unit tests | **23/23 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/test_core.py) |
 | Required runtime dependencies | **0** | [pyproject.toml](pyproject.toml) |
 | Synthetic outlier check | **8.0×**, with 800 views / 100 baseline | [test_relative_baseline](tests/test_core.py) |
 | Read-only handoff | **Enabled**; adoption requires approval | [export schema](skills/signalforge/references/integration.md) |
@@ -108,9 +115,9 @@ Missing dates, creator identities and view counts are reported as gaps, not gues
 
 ## Security and privacy
 
-The current engine:
-- Does **not** connect to YouTube, GitHub or any network; it reads the supplied local JSON.
-- Does **not** use browser cookies, private messages, tokens, paid APIs or telemetry.
+The video-analysis engine:
+- Does **not** connect to YouTube or any network; it reads the supplied local JSON. The separate GitHub collector makes one **explicitly requested** public HTTPS search.
+- Does **not** use browser cookies, private messages, tokens, paid APIs or telemetry. GitHub receives search terms only when that optional command is invoked.
 - Does **not** execute instructions inside captions, titles, repos, links or documents.
 - Does **not** install software, overwrite output files or approve its own findings.
 - Exports leads for further human/agent research; adoption requires separate gates.
@@ -131,10 +138,10 @@ See [release gates](README_RELEASE_GATES.md), [validation](VALIDATION.md), [meth
 ## Frequently asked questions
 
 ### Can it discover YouTube or Instagram videos by itself?
-Not in v0.1. Feed it metadata you obtained through an authorized source. Live collectors are a planned addition and will need separate security and platform-rule review.
+Not in v0.1. Supply authorized video metadata as JSON. It **can** discover public GitHub repositories through a separate opt-in API call. Video collectors will need separate security and platform-rule review.
 
 ### Does it send my data to an AI model or cloud server?
-No. The current Python engine is offline. If you run it through a separate agent, that agent's own privacy and model configuration still apply.
+The video-analysis engine is offline and uses no cloud model. The optional GitHub discovery command sends the **public search phrase** to GitHub's API and receives public metadata; it does not send your local video datasets or secrets. If you run SignalForge through a separate AI agent, that agent's own privacy and model configuration still apply.
 
 ### Is an 8× multiplier a guaranteed viral trend?
 No. It is an observed relative outlier in the sample. Platform view definitions, video age, selection bias and missing history matter.

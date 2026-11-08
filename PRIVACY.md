@@ -1,9 +1,11 @@
 # Privacy — SignalForge
 
-The current v0.1 Python core runs entirely offline. It reads a local JSON file, computes summaries and, if requested, writes a new JSON report. It does not make HTTP requests, upload data, track usage, request account access, collect cookies, fetch videos, send telemetry, or invoke a hosted model. It does not run in the background.
+SignalForge has two separate execution modes.
 
-Inputs can include URLs, creator names, titles and topics. Such inputs are untrusted and must be supplied lawfully; never include private messages, access tokens or personal secrets in public examples. If you use SignalForge through Claude Code or a third-party agent, the agent's **own** settings and connections govern whether information is sent to its provider. This privacy statement describes the SignalForge Python engine only.
+**Offline video analysis:** `python -m signalforge DATA.json` reads local metadata, computes a report and optionally writes a new JSON file. It does not make HTTP requests, use hosted AI models, collect cookies, request credentials, send telemetry or run in the background.
 
-Future network collectors, if added, will require separate documentation, safe defaults, source restrictions and user consent where appropriate.
+**Opt-in public GitHub discovery:** `python -m signalforge.discovery "public search terms"` makes one unauthenticated HTTPS request to the fixed `api.github.com` search endpoint. GitHub receives the **search phrase**, IP address and ordinary connection metadata; the public repository results are returned to your machine. No GitHub personal access token, OAuth, private repository data or local video dataset is sent. Don't put secrets in queries. The endpoint has rate limits. No redirect is followed and response size and result count are bounded. The command does not run code from any returned repository.
+
+If invoked inside another agent, that agent's own settings determine whether your messages are sent to its provider. The no-cloud-model statement describes SignalForge itself, not any connected host agent.
 
 Maintainer: **Mauricio Moya** · [GitHub](https://github.com/maumoya).
