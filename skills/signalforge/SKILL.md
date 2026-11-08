@@ -15,11 +15,11 @@ Research content patterns and potential technical opportunities without treating
 - Access only publicly available metadata or data the user supplies. Do not bypass login, CAPTCHAs, rate limits, robots restrictions, or platform rules.
 - Never fabricate measurements, citations, dates, OpenSSF scores, or certifications.
 - Do not send owner data, private repositories, messages, tokens, or media to cloud models.
-- The bundled engine is offline: it processes JSON and never visits references.
+- Video analytics are offline. Public GitHub discovery is a separate, opt-in request to the fixed official API. Never send private queries or credentials.
 
 ## Workflow
 1. Identify objective: `content` (trending hooks/topics) or `opportunity` (ideas/technology worth researching). A niche is optional.
-2. Obtain an authorized dataset: URL, creator, platform, title, topic, views, and published_at. State collection time and provenance; unknown fields remain null.
+2. For video research, obtain authorized JSON metadata: URL, creator, platform, title, topic, views and published_at. For technical discovery, after checking that the query is public and the user has authorized it, optionally run `python -m signalforge.discovery "public repository search" --limit 10 --candidates --out github-leads.json`. This makes an unauthenticated GitHub API request, never installs repositories, and must not be run automatically without a clearly requested public search.
 3. Run `python -m signalforge YOUR_DATA.json --out REPORT.json`. Review missing data and rejected rows. Never install additional software without approval.
 4. Compare each item with the median of up to 10 preceding and 10 following dated, non-missing videos by the **same creator and platform**. Do not extrapolate from fewer than 5 neighbors.
 5. Cluster topics and report independent creators, cross-platform appearances, observed multipliers, confidence, and limitations. Trending is not proof of causation, market fit or ROI.
@@ -34,3 +34,4 @@ A compact table of candidates, evidence, confidence, limits, and recommended nex
 - [Methodology](references/methodology.md)
 - [Integration contract](references/integration.md)
 - [Security policy](references/security.md)
+- [Public GitHub discovery](references/github-discovery.md)
