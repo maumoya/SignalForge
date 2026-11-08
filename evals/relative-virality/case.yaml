@@ -1,0 +1,3 @@
+schema_version: "1.1"
+name: relative-virality
+expected_outcome: "Computes an 8x outlier relative to the same creator baseline and explains limitations."
