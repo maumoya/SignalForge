@@ -1,0 +1,53 @@
+# Signed-release pipeline based on maumoya/skill-forger-e2e.
+# Runs only when the owner pushes a signed v* tag.
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions: read-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      hashes: ${{ steps.hash.outputs.hashes }}
+    steps:
+      - name: Checkout signed source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify tagged source and test
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git cat-file -t "$TAG" | grep -qx tag # annotated tag required; owner verifies its signature before push
+          python -m unittest discover -s tests -v
+          bash scripts/lint_skill.sh
+      - name: Create source package
+        env:
+          TAG: ${{ github.ref_name }}
+        run: git archive --format=zip --prefix=signalforge/ -o "signalforge-${TAG}.zip" "$TAG"
+      - name: Record SHA-256
+        id: hash
+        env:
+          TAG: ${{ github.ref_name }}
+        run: echo "hashes=$(sha256sum "signalforge-${TAG}.zip" | base64 -w0)" >> "$GITHUB_OUTPUT"
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: gh release create "$TAG" "signalforge-${TAG}.zip" --verify-tag --title "$TAG" --generate-notes
+  provenance:
+    name: Signed SLSA provenance
+    needs: build
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.1.0
+    with:
+      base64-subjects: ${{ needs.build.outputs.hashes }}
+      upload-assets: true
+      provenance-name: signalforge-${{ github.ref_name }}.intoto.jsonl
