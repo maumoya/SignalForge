@@ -8,7 +8,7 @@ description = "Local-first, evidence-backed signal intelligence for agent workfl
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "Mauricio Alonso Moya Tapia"}]
+authors = [{name = "Mauricio Moya"}]
 dependencies = []
 [project.scripts]
 signalforge = "signalforge.cli:main"

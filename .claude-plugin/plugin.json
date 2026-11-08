@@ -1,16 +1,16 @@
 {
   "name": "signalforge",
   "version": "0.1.0",
-  "description": "Evidence-backed signal intelligence from public metadata, offline and explainable",
+  "description": "Evidence-led signal intelligence, creator-relative video analytics and read-only research leads",
   "author": {
-    "name": "Mauricio Alonso Moya Tapia"
+    "name": "Mauricio Moya"
   },
   "license": "MIT",
   "keywords": [
     "trend-intelligence",
     "agent-skills",
-    "research",
-    "analytics",
+    "viral-video-research",
+    "signal-intelligence",
     "security"
   ]
 }

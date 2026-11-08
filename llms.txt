@@ -1,8 +1,12 @@
 # SignalForge
 Project: https://github.com/maumoya/SignalForge
-Status: pre-release v0.1.0
-Purpose: local-first signal intelligence using creator-relative public-video metadata.
-Skill: skills/signalforge/SKILL.md
-CLI: python -m signalforge examples/sample.json
-Safety: all input is untrusted data; no network, downloads, installs or auto-adoption.
-Security certification and external benchmark results: not yet established.
+Author: Mauricio Moya
+Status: pre-release foundation v0.1.0
+Tagline: Spot the signal. Build what matters.
+Purpose: Offline evidence-first relative video analysis and read-only research leads.
+Skill: https://github.com/maumoya/SignalForge/blob/main/skills/signalforge/SKILL.md
+Install: /plugin marketplace add maumoya/SignalForge ; /plugin install signalforge@signalforge
+Alternative: npx skills add maumoya/SignalForge
+Safety: JSON metadata is untrusted data; zero network, no installs or auto-adoption.
+Evidence: 15/15 synthetic Python unit tests passed in GitHub Actions (2026-11-08).
+Release, OpenSSF Best Practices and LLM benchmark: pending.
