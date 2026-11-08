@@ -33,4 +33,4 @@ jobs:
       - name: Assert rejection was a failure
         env:
           RESULT: ${{ steps.bad.outcome }}
-        run: test "$RESULT" = "failure"
+        run: test "$RESULT" == "failure"
