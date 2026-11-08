@@ -38,7 +38,7 @@ def safe_url(value: str) -> str:
 def clean_text(value: object) -> str:
     if not isinstance(value,str): return ""
     text=re.sub(r"[\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]","",value)
-    return " ".join(c for c in text if ord(c)>=32 or c in "\n\t").split()[:MAX_TEXT]
+    return " ".join("".join(c for c in text if ord(c)>=32 or c in "\n\t").split())[:MAX_TEXT]
 
 def parse_date(value: object) -> str | None:
     if not isinstance(value,str): return None
