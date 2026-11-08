@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" role="img" aria-label="SignalForge animated example pipeline">
+<rect width="960" height="470" rx="22" fill="#091725"/>
+<text x="48" y="65" font-family="Arial" font-size="17" fill="#8fbbbf" letter-spacing="3">SIGNALFORGE / OFFLINE PIPELINE</text>
+<g font-family="Arial" fill="#d2e7e7" font-size="24">
+<rect x="46" y="114" width="258" height="210" rx="16" stroke="#315868" fill="#0d2934"/>
+<text x="66" y="157">01 / DISCOVER</text><text x="66" y="211" font-size="17">Creator-relative</text><text x="66" y="240" font-size="17">public metadata</text>
+<rect x="351" y="114" width="258" height="210" rx="16" stroke="#315868" fill="#0d2934"/>
+<text x="371" y="157">02 / VALIDATE</text><text x="371" y="211" font-size="17">Neighbor median</text><text x="371" y="240" font-size="17">8× example</text>
+<rect x="656" y="114" width="258" height="210" rx="16" stroke="#315868" fill="#0d2934"/>
+<text x="676" y="157">03 / PRIORITIZE</text><text x="676" y="211" font-size="17">Evidence-ranked</text><text x="676" y="240" font-size="17">investigation leads</text></g>
+<g stroke="#45e1c3" stroke-width="4" fill="none">
+<path d="M306 219 H346"><animate attributeName="stroke-opacity" values=".2;1;.2" dur="2s" repeatCount="indefinite"/></path>
+<path d="M611 219 H652"><animate attributeName="stroke-opacity" values=".2;1;.2" dur="2s" begin=".6s" repeatCount="indefinite"/></path>
+</g>
+<circle cx="480" cy="385" r="8" fill="#45e1c3"><animate attributeName="cx" values="100;480;850;100" dur="5s" repeatCount="indefinite"/></circle>
+<text x="48" y="437" font-size="15" fill="#729ca2" font-family="Arial">Synthetic illustration · not a real-world benchmark · no automatic installation</text>
+</svg>

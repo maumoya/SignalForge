@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="SignalForge — Discover. Validate. Prioritize.">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#061321"/><stop offset="1" stop-color="#0b343a"/></linearGradient><linearGradient id="accent"><stop stop-color="#4bf7d1"/><stop offset="1" stop-color="#3aa6cc"/></linearGradient></defs>
+<rect width="1280" height="640" fill="url(#bg)"/>
+<g transform="translate(967 321)" fill="none" stroke="#43e2c2"><circle r="246" opacity=".14"/><circle r="196" opacity=".22"/><circle r="142" opacity=".4"/><circle r="83" opacity=".6"/><circle r="23" fill="#43e2c2"/><path d="M0 0 L177 -164" stroke-width="6"/><circle cx="177" cy="-164" r="13" fill="#43e2c2"/></g>
+<text x="76" y="120" font-family="Arial,sans-serif" font-size="24" letter-spacing="5" fill="#b8dad9">MAUMOYA / OPEN SOURCE AGENT SKILL</text>
+<text x="76" y="294" font-family="Arial,sans-serif" font-weight="bold" font-size="105" fill="#ffffff">Signal<tspan fill="#4bf7d1">Forge</tspan></text>
+<text x="79" y="372" font-family="Arial,sans-serif" font-size="32" fill="#e2f1ef" letter-spacing="2">Discover. Validate. Prioritize.</text>
+<rect x="77" y="435" width="490" height="61" rx="14" stroke="#478b91" fill="#0a252e"/>
+<text x="102" y="474" font-family="Arial,sans-serif" font-size="24" fill="#b8e1dd">LOCAL-FIRST · EXPLAINABLE · SAFE</text>
+<path d="M77 556 H581" stroke="url(#accent)" stroke-width="7"/>
+<text x="79" y="598" font-family="Arial,sans-serif" font-size="22" fill="#a9d1cf">Mauricio Moya  ·  github.com/maumoya/SignalForge</text>
+</svg>

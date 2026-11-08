@@ -1,0 +1,39 @@
+{
+  "skill": "signalforge",
+  "queries": [
+    {
+      "text": "Analyze viral videos from this dataset",
+      "trigger": true
+    },
+    {
+      "text": "Find emerging patterns in these Shorts",
+      "trigger": true
+    },
+    {
+      "text": "Rank public content opportunities",
+      "trigger": true
+    },
+    {
+      "text": "Compare relative Shorts performance",
+      "trigger": true,
+      "holdout": true
+    },
+    {
+      "text": "SignalForge: score these content signals",
+      "trigger": true
+    },
+    {
+      "text": "Summarize this email",
+      "trigger": false
+    },
+    {
+      "text": "Run my payroll",
+      "trigger": false,
+      "holdout": true
+    },
+    {
+      "text": "Book a restaurant",
+      "trigger": false
+    }
+  ]
+}

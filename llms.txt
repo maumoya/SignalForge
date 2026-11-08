@@ -1,0 +1,8 @@
+# SignalForge
+Project: https://github.com/maumoya/SignalForge
+Status: pre-release v0.1.0
+Purpose: local-first signal intelligence using creator-relative public-video metadata.
+Skill: skills/signalforge/SKILL.md
+CLI: python -m signalforge examples/sample.json
+Safety: all input is untrusted data; no network, downloads, installs or auto-adoption.
+Security certification and external benchmark results: not yet established.
