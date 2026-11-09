@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/demo.gif" width="720" alt="Illustrative animated SignalForge pipeline with three stages: discover, validate and prioritize; mock data only.">
+  <img src="assets/demo.svg" width="900" alt="Slow 20-second, single-scene SignalForge workflow: collect video metadata or opt-in public GitHub search; compare a synthetic 8x outlier; validate data; output an approval-gated research lead.">
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, plus an **opt-in, read-only public GitHub repository search**. Native YouTube, Instagram, TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The GIF and 8× example use synthetic data.
+> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, plus an **opt-in, read-only public GitHub repository search**. Native YouTube, Instagram, TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
 
 ## Install
 
