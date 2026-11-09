@@ -70,7 +70,7 @@
   <rect x="143" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.000;0.250;1" values=".18;1;.18;.18"/></rect>
   <rect x="326" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.250;0.500;1" values=".18;1;.18;.18"/></rect>
   <rect x="509" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.500;0.750;1" values=".18;1;.18;.18"/></rect>
-  <rect x="692" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.750;1.000;1" values=".18;1;.18;.18"/></rect>
+  <rect x="692" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.750;0.990;1" values=".18;1;.18;.18"/></rect>
   <text x="228" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Collect</text>
   <text x="412" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Compare</text>
   <text x="594" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Validate</text>
