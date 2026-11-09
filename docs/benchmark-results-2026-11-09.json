@@ -1,0 +1,29 @@
+{
+  "schema_version": "signalforge-benchmark/1.0",
+  "source_url": "https://github.com/maumoya/SignalForge/actions/runs/42539436259",
+  "date": "2026-11-09",
+  "benchmark_type": "synthetic-metadata-processing-only",
+  "synthetic_records": 3000,
+  "hypothetical_duration_per_video_seconds": 60,
+  "hypothetical_total_playback_hours": 50,
+  "records_with_baseline": 3000,
+  "topic_groups": 12,
+  "repeats": 7,
+  "median_elapsed_seconds": 0.08536,
+  "min_elapsed_seconds": 0.08187,
+  "max_elapsed_seconds": 0.09129,
+  "metadata_records_per_second": 35147,
+  "theoretical_records_per_hour_at_measured_rate": 126530287,
+  "environment": {
+    "python": "3.11.18",
+    "os": "Linux",
+    "architecture": "x86_64"
+  },
+  "human_comparison_measured": false,
+  "limitations": [
+    "No video was downloaded, watched, transcribed or understood",
+    "One-hour capacity extrapolates a short CPU run and was not sustained",
+    "No human-productivity percentage was measured",
+    "Does not benchmark crawling, network time or security scanning"
+  ]
+}
