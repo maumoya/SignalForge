@@ -1,19 +1,19 @@
 # OpenSSF Scorecard hardening — owner settings and reproducible evidence
 
-Verified on 2026-11-09 from GitHub Actions Scorecard logs, overall **6.5/10**. Primary low/zero checks:
+Verified on 2026-11-09 from the latest `main` GitHub Actions Scorecard logs ([run #42543894709](https://github.com/maumoya/SignalForge/actions/runs/42543894709)), overall **7.0/10**. Primary low/zero checks:
 
 | Check | Score | Remediation |
 |---|---:|---|
-| Branch-Protection | 0/10 | Turn on an active ruleset on `main` |
+| Branch-Protection | 0/10 | Turn on an active ruleset on `main` (owner admin setting; not changed by this PR) |
 | Code-Review | 0/10 | Require substantive review by another trusted human; self-reviewed/sole-owner merges won't earn this |
 | CII-Best-Practices | 0/10 | Register and complete the *real* bestpractices.dev assessment |
-| Fuzzing | 0/10 | Only add authentic fuzz coverage if the input parsing threat warrants it; never simulate |
+| Fuzzing | 10/10 | ClusterFuzzLite workflow now detected by Scorecard; keep it functional and monitored |
 | Maintained | 0/10 | Newly created repo (<90 days); needs time |
 | Contributors | 3/10 | One contributor organization; don't add fake contributors |
 | Signed-Releases | Not scored | A real signed tag/release needed |
 | Packaging | Not scored | A published tagged release or supported package distribution needed |
 
-**7.4–8 is an objective, not a claim.** Re-run <https://github.com/maumoya/SignalForge/actions/workflows/scorecard.yml> after admin settings and release; display only the observed value.
+**7.4–8 is an objective, not a claim.** Branch protection and independent code review are the biggest outstanding security gaps. Re-run <https://github.com/maumoya/SignalForge/actions/workflows/scorecard.yml> after admin settings and release; display only the observed value.
 
 ## Protect main (repo-owner action)
 
