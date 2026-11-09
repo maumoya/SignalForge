@@ -1,0 +1,35 @@
+name: ClusterFuzzLite input fuzzing
+on:
+  pull_request:
+    paths:
+      - signalforge/core.py
+      - .clusterfuzzlite/**
+      - .github/workflows/fuzzing.yml
+  schedule:
+    - cron: '43 5 * * 3'
+  workflow_dispatch:
+permissions: read-all
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build Python fuzzer
+        uses: google/clusterfuzzlite/actions/build_fuzzers@52ecc61cb587ee99c26825a112a21abf19c7448c
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          language: python
+      - name: Run bounded fuzz campaign
+        uses: google/clusterfuzzlite/actions/run_fuzzers@52ecc61cb587ee99c26825a112a21abf19c7448c
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          language: python
+          fuzz-seconds: ${{ github.event_name == 'pull_request' && 90 || 600 }}
+          mode: ${{ github.event_name == 'pull_request' && 'code-change' || 'batch' }}
+          output-sarif: true
