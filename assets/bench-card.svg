@@ -1,17 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="270" viewBox="0 0 900 270" role="img" aria-label="Measured on GitHub Actions November 9 2026: 3000 synthetic video metadata records processed in 0.08536 seconds, median of 7 runs; 35147 records per second. The represented clip lengths total 50 hours hypothetically, but no video was watched or understood.">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#110c2a"/><stop offset="1" stop-color="#301759"/></linearGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4bdeb2"/><stop offset="1" stop-color="#62e8df"/></linearGradient></defs>
-<rect width="900" height="270" rx="20" fill="url(#bg)"/><rect x="1" y="1" width="898" height="268" rx="19" fill="none" stroke="#53367d" stroke-width="2"/>
-<g font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif">
-<text x="32" y="37" font-size="17" letter-spacing="2" font-weight="700" fill="#c6b2ee">REAL CI BENCHMARK · 2026-11-09</text>
-<text x="32" y="126" font-size="83" font-weight="850" fill="#51dfb6">3,000</text>
-<text x="34" y="157" font-size="22" font-weight="700" fill="#f7f3ff">metadata records processed</text>
-<text x="34" y="187" font-size="17" fill="#bfb0db">35,147 records/second</text>
-<path d="M436 59 V194" stroke="#5a4283"/>
-<text x="475" y="80" font-size="19" fill="#c5b8e0">Median processing time</text>
-<text x="475" y="135" font-size="57" font-weight="800" fill="#ffffff">0.085<tspan font-size="25" fill="#b0a2cb"> sec</tspan></text>
-<rect x="475" y="150" width="383" height="14" rx="7" fill="#392757"/><rect x="475" y="150" width="383" height="14" rx="7" fill="url(#g)"/>
-<text x="475" y="191" font-size="17" fill="#e9d3ff">50h hypothetical clip duration*</text>
-<path d="M31 208 H869" stroke="#604a83"/>
-<text x="32" y="233" font-size="15" fill="#c4b7dd">7 timed runs · GitHub Actions · Python 3.11 · synthetic fixture</text>
-<text x="32" y="253" font-size="13" fill="#9684b4">*Metadata only. Does not watch, transcribe or understand videos. No human productivity % claimed.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" role="img" aria-labelledby="title desc">
+<title id="title">SignalForge metadata throughput: 3,000 videos represented, 50 hours of hypothetical playback cataloged and scored in 0.085 seconds</title>
+<desc id="desc">Measured in GitHub Actions on November 9, 2026: the engine analyzed the already collected metadata of 3,000 synthetic videos, corresponding to 50 hours of hypothetical one-minute videos, and grouped them into 12 topics. Median Python processing time was 0.08536 seconds over seven timed runs. It did not watch or understand videos. No human productivity increase was measured.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#130d32"/><stop offset=".55" stop-color="#211245"/><stop offset="1" stop-color="#0c2a38"/></linearGradient>
+<linearGradient id="teal" x1="0" y1="0" x2="1"><stop stop-color="#3ddbb2"/><stop offset="1" stop-color="#80f7e3"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1"><stop stop-color="#efb74e"/><stop offset="1" stop-color="#ffdf84"/></linearGradient>
+</defs>
+<rect width="960" height="330" rx="22" fill="url(#bg)"/>
+<rect x="1" y="1" width="958" height="328" rx="21" stroke="#59418b" stroke-width="2" fill="none"/>
+<g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
+<text x="33" y="37" font-size="15" font-weight="750" letter-spacing="2" fill="#beabe9">MEASURED METADATA THROUGHPUT</text>
+<text x="33" y="73" font-size="22" font-weight="700" fill="#fff">Thousands of videos. One research-ready catalog.</text>
+<rect x="32" y="95" width="279" height="131" rx="13" fill="#261950" stroke="#6855a6"/>
+<text x="51" y="125" fill="#c7bbdf" font-size="15">Video records scored</text>
+<text x="50" y="190" fill="url(#teal)" font-size="61" font-weight="830">3,000</text>
+<rect x="326" y="95" width="279" height="131" rx="13" fill="#251c42" stroke="#6855a6"/>
+<text x="345" y="125" fill="#c7bbdf" font-size="15">Hypothetical playback represented</text>
+<text x="345" y="190" fill="url(#gold)" font-size="60" font-weight="820">50<tspan font-size="31"> hours</tspan></text>
+<rect x="620" y="95" width="307" height="131" rx="13" fill="#18313c" stroke="#4b9a96"/>
+<text x="638" y="125" fill="#b3d1d3" font-size="15">Median metadata processing</text>
+<text x="638" y="190" fill="#e9fff9" font-size="60" font-weight="820">0.085<tspan font-size="28"> sec</tspan></text>
+<path d="M33 247H927" stroke="#5a4779"/>
+<circle cx="44" cy="272" r="7" fill="#58e5c4"/>
+<text x="61" y="278" fill="#f1eafa" font-size="17" font-weight="650">12 topics grouped</text>
+<circle cx="275" cy="272" r="7" fill="#bd99ff"/>
+<text x="293" y="278" fill="#d0c6e1" font-size="16">7-run GitHub Actions median</text>
+<circle cx="637" cy="272" r="7" fill="#f3cb74"/>
+<text x="654" y="278" fill="#e7dcf4" font-size="16">Python 3.11 · Linux</text>
+<text x="33" y="311" fill="#b2a6c5" font-size="13">Synthetic metadata only · No videos watched or transcribed · No measured human time savings</text>
 </g></svg>
