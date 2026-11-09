@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude%20Code-skill%20%2B%20plugin-7c5cfc" alt="Claude Code skill and plugin">
-  <a href="#results-measured-2026-11-08"><img src="https://img.shields.io/badge/offline%20unit%20tests-23%2F23-2da44e" alt="23 of 23 offline unit tests passed"></a>
+  <a href="#results-measured-2026-11-09"><img src="https://img.shields.io/badge/metadata%20throughput-35%2C147%2Fsec-2da44e" alt="35,147 synthetic metadata records processed per second in a short GitHub Actions benchmark"></a>
   <a href="https://github.com/maumoya/SignalForge/actions/workflows/test.yml"><img src="https://github.com/maumoya/SignalForge/actions/workflows/test.yml/badge.svg" alt="GitHub CI tests"></a>
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/Open%20Source-OSI%20approved-3DA639?logo=opensourceinitiative&amp;logoColor=white" alt="OSI-approved open source license"></a>
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="#results-measured-2026-11-08"><img src="assets/bench-card.svg" width="760" alt="Synthetic validation: 23/23 Python unit tests passed and zero required runtime libraries. This is not an LLM benchmark."></a>
+  <a href="#results-measured-2026-11-09"><img src="assets/bench-card.svg" width="760" alt="Measured benchmark: 3,000 synthetic video metadata records in a median 0.08536 seconds, 35,147 records per second. Not full-video analysis or human time savings."></a>
 </p>
 
 # SignalForge
@@ -98,13 +98,29 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 
 Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier. No HTTP requests are made by the offline **video** engine.
 
-## Results (measured 2026-11-08)
+## Results (measured 2026-11-09)
 
-**What we actually tested:** the Python 3 standard-library core with synthetic video fixtures, mocked GitHub API responses and adversarial input cases. GitHub Actions tests and lint completed successfully on the public discovery branch. The 23 tests include creator-relative baseline, sparse data, deduplication, public/private URL handling, inert hostile titles, owner approval gates, no-overwrite outputs, GitHub public API origin checks, redirect rejection and read-only public repository leads.
+**Performance, reproduced in GitHub Actions:** 3,000 synthetic video-metadata records processed in a median **0.08536 seconds** across seven timed Python runs, after one warm-up. That's **35,147 metadata records per second** under the measured conditions. The dataset has 3,000 fictitious 60-second clips, which represent **50 hours of hypothetical playback time**, not 50 hours of material actually watched or understood.
+
+At that *instantaneous test rate*, a simple one-hour linear extrapolation is about **126.5 million records**. This is **not** a sustained one-hour measurement, an ingestion/API benchmark or a forecast of real-world operational throughput. We did **not** measure a human doing the same metadata-triage task, so we cannot responsibly claim a percentage of human time saved. Avoid interpreting this as 3,000% more productive.
+
+[Reproduce the benchmark](docs/benchmark-methodology.md) · [GitHub Actions measured run](https://github.com/maumoya/SignalForge/actions/runs/42539436259) · [Performance script](scripts/benchmark.py).
+
+| Benchmark | Value | Scope |
+|---|---:|---|
+| Records analyzed | **3,000** | Synthetic metadata, not audiovisual contents |
+| Median runtime, seven runs | **0.08536 seconds** | Python 3.11.18 / Linux x86-64 |
+| Metadata records/second | **35,147** | Measured short-run throughput |
+| Hypothetical clip durations represented | **50 hours** | 3,000 × 60 seconds; videos were **not** played |
+| Human productivity improvement | **Not measured** | Requires a controlled comparable baseline |
+
+
+
+**What we actually tested:** the Python 3 standard-library core with synthetic video fixtures, mocked GitHub API responses and adversarial input cases. GitHub Actions tests and lint completed successfully on the public discovery branch. The 25 tests include creator-relative baseline, sparse data, deduplication, public/private URL handling, inert hostile titles, owner approval gates, no-overwrite outputs, GitHub public API origin checks, redirect rejection and read-only public repository leads.
 
 | Check | Observed result | Evidence |
 |---|---|---|
-| Python unit tests | **23/23 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/test_core.py) |
+| Python unit tests | **25/25 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/test_core.py) |
 | Required runtime dependencies | **0** | [pyproject.toml](pyproject.toml) |
 | Synthetic outlier check | **8.0×**, with 800 views / 100 baseline | [test_relative_baseline](tests/test_core.py) |
 | Read-only handoff | **Enabled**; adoption requires approval | [export schema](skills/signalforge/references/integration.md) |
