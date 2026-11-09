@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="#results-measured-2026-11-09"><img src="assets/bench-card.svg" width="760" alt="Measured benchmark: 3,000 synthetic video metadata records in a median 0.08536 seconds, 35,147 records per second. Not full-video analysis or human time savings."></a>
+  <a href="#results-measured-2026-11-09"><img src="assets/bench-card.svg" width="760" alt="SignalForge measured metadata performance: 3,000 synthetic video records, 50 hours of hypothetical one-minute content represented, 12 topics, 0.08536 seconds median CPU runtime. No video playback or measured human time savings."></a>
 </p>
 
 # SignalForge
@@ -99,6 +99,8 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier. No HTTP requests are made by the offline **video** engine.
 
 ## Results (measured 2026-11-09)
+
+**The result in business terms:** A catalog representing **3,000 one-minute videos (50 hours of potential viewing)** can be checked for relative-performance signals and grouped into **12 topics** from already-collected metadata in **less than 0.1 second** of measured CPU time. This makes it practical to shortlist what to investigate before anyone chooses what to watch. It does **not** imply that the skill watched the 50 hours or that collecting the metadata takes 0.1 second.
 
 **Performance, reproduced in GitHub Actions:** 3,000 synthetic video-metadata records processed in a median **0.08536 seconds** across seven timed Python runs, after one warm-up. That's **35,147 metadata records per second** under the measured conditions. The dataset has 3,000 fictitious 60-second clips, which represent **50 hours of hypothetical playback time**, not 50 hours of material actually watched or understood.
 
