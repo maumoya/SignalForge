@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproducible synthetic *metadata* benchmark; never downloads or watches video."""
+"""Speed regression check on generated records, for CI. The measured result on real videos is scripts/real_benchmark.py."""
 from __future__ import annotations
 import argparse, json, os, platform, statistics, sys, time
 from datetime import datetime, timedelta, timezone
@@ -17,11 +17,11 @@ def fixture(count: int = 3000, clip_seconds: int = 60):
     for i in range(count):
         creator=i//30
         rows.append({
-            "url":f"https://www.youtube.com/shorts/sf-synthetic-{i}",
+            "url":f"https://www.youtube.com/shorts/sf-generated-{i}",
             "platform":"youtube",
-            "creator":f"synthetic-creator-{creator}",
-            "title":f"Synthetic video #{i} about topic {i%12}",
-            "topic":f"synthetic-topic-{i%12}",
+            "creator":f"generated-creator-{creator}",
+            "title":f"Generated video #{i} about topic {i%12}",
+            "topic":f"generated-topic-{i%12}",
             "views": 1000*(3 if i%30==15 else 1),
             "published_at":(anchor+timedelta(days=i%30)).isoformat(),
             "illustrative_clip_seconds":clip_seconds
@@ -44,8 +44,8 @@ def benchmark(count:int=3000,clip_seconds:int=60,repeats:int=7):
     represented_hours=count*clip_seconds/3600
     return {
       "schema_version":"signalforge-benchmark/1.0",
-      "benchmark_type":"synthetic-metadata-processing-only",
-      "synthetic_records":count,
+      "benchmark_type":"generated-records-speed-check",
+      "generated_records":count,
       "hypothetical_duration_per_video_seconds":clip_seconds,
       "hypothetical_total_playback_hours":represented_hours,
       "records_with_baseline":observed,

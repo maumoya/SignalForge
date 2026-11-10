@@ -1,0 +1,25 @@
+# Public organization channels used for the measured run. One handle per line.
+@NASA
+@TED
+@TEDEd
+@khanacademy
+@NatGeo
+@bbcearth
+@GoogleDevelopers
+@freecodecamp
+@mitocw
+@crashcourse
+@kurzgesagt
+@Vox
+@WIRED
+@SciShow
+@numberphile
+@NASAJPL
+@TheRoyalInstitution
+@Computerphile
+@pbsspacetime
+@NatureVideoChannel
+@BBCNews
+@ESA
+@Google
+@Microsoft

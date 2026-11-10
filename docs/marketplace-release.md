@@ -14,7 +14,7 @@ This is a GitHub **Action** (`action.yml` at the repo root) and a **Claude Code 
 3. Accept the **GitHub Marketplace Developer Agreement** if prompted. This is the owner's legal decision, not something an automation should accept.
 4. Select primary category (suggestion: **Code quality**) and optional secondary category, if offered.
 5. Create a **versioned signed and GitHub-Verified tag** through an authenticated signing environment; do not claim a signed tag from a button that creates an unsigned tag. Check repository release workflow's tag contract before publishing.
-6. Title: `SignalForge v0.1.0 — Public Metadata Triage`.
+6. Title: `SignalForge v0.2.0`.
 7. Description must emphasize supported features: offline video JSON analytics, optional public GitHub search, read-only findings, CI-tested dataset Action. Do **not** claim automatic reel ingestion, malware scanning, 50h watched, human time savings, or full VISION integration.
 8. Confirm the action name is unique and all published categories/terms/2FA requirements. Publish through GitHub's owner UI, then verify the live Marketplace URL and a real install from the tagged version.
 

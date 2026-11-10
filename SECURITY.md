@@ -4,13 +4,13 @@ SignalForge is an offline, local-first data analysis skill. Public source data, 
 
 ## Supported versions
 
-Security fixes are applied to the latest maintained release. Version 0.1.0 is a pre-release; the `main` branch is an active development target and is not a signed release.
+Security fixes are applied to the latest maintained release. Releases are signed, annotated `v*` tags with SLSA provenance, starting at v0.2.0; the `main` branch is an active development target.
 
 ## Reporting vulnerabilities privately
 
 **Do not open a public issue containing a working exploit, credentials, private data or other sensitive technical details.** Prefer GitHub's private vulnerability reporting under [Security → Advisories](https://github.com/maumoya/SignalForge/security/advisories) when available. If private reporting is unavailable, use the contact method on the [maintainer's GitHub profile](https://github.com/maumoya) and ask for a secure communication channel before sharing sensitive details.
 
-A useful report includes the affected version and commit, potential impact, a minimal reproducible example, and whether a fix or mitigation is known. Use synthetic data only.
+A useful report includes the affected version and commit, potential impact, a minimal reproducible example, and whether a fix or mitigation is known. Use made-up test data only, never real private data.
 
 ## Coordinated disclosure process
 

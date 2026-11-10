@@ -89,4 +89,12 @@ class IngestTests(unittest.TestCase):
         self.assertEqual(items[8]["published_at"],"2026-03-01T00:00:00+00:00")
         scored=analyze(items)["items"]
         self.assertEqual((scored[0]["platform"],scored[0]["creator"],scored[0]["multiplier"],scored[0]["duration_seconds"]),("youtube","@chan",1,30))
+    def test_channel_listing_rows_take_the_creator_from_the_playlist(self):
+        from signalforge.ingest import convert
+        lines=[json.dumps({"url":f"https://www.youtube.com/watch?v=v{i}","webpage_url":f"https://www.youtube.com/watch?v=v{i}",
+            "ie_key":"Youtube","title":f"Talk {i}","view_count":1000,"duration":600,"timestamp":1767225600+86400*i,
+            "uploader_id":None,"channel_id":None,"playlist_uploader_id":"@org","playlist_channel_id":"UC123"}) for i in range(6)]
+        items,skipped=convert(lines,"")
+        self.assertEqual((len(items),skipped),(6,0))
+        self.assertEqual({x["creator"] for x in items},{"@org"})
 if __name__=="__main__": unittest.main()

@@ -48,7 +48,7 @@
     <rect x="762" y="421" width="426" height="62" rx="9" fill="#261d49"/>
     <text x="780" y="446" font-size="14" fill="#ffcf65">NEXT ACTION</text>
     <text x="780" y="470" font-size="16" font-weight="700" fill="#ffffff">Investigate · Do not auto-install</text>
-    <text x="764" y="520" font-size="14" fill="#9a8bbd">SYNTHETIC EXAMPLE · NOT A FIELD BENCHMARK</text>
+    <text x="764" y="520" font-size="14" fill="#9a8bbd">WORKED EXAMPLE · MEASURED RUN IN THE README</text>
   </g>
 </g>
 <circle cx="1128" cy="126" r="106" fill="#e7df00"/>

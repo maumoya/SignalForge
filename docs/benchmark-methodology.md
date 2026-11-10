@@ -1,13 +1,36 @@
-# Synthetic metadata throughput — reproducible method
+# How the result is measured
 
-Run `python scripts/benchmark.py --count 3000 --clip-seconds 60 --repeats 7` from repository root.
+The headline numbers come from one run on real public videos, not from made-up records.
 
-The benchmark creates 3,000 synthetic metadata records belonging to 100 synthetic creators with 30 uploads per creator. It includes creator, public-form URL, title, topics, upload date and view count. The first invocation warms up the Python process. Seven measured iterations invoke the existing `analyze` pipeline (input validation, URL checks, hash deduplication, per-creator median baselines and topic ranking); the median elapsed wall-clock is reported using Python's `time.perf_counter`.
+## Run it
 
-For arithmetic context only: 3,000 × 60-second hypothetical clips = **50 hours of sequential playback**. However, **SignalForge does not actually watch, download, transcribe, listen to, understand or fact-check those 50 hours.** It processes existing *metadata*, and therefore this is not a human-equivalent review speed or a legitimate measured productivity percentage. The theoretical one-hour throughput assumes linear scaling from a very short local CPU run, which has not been sustained for an hour.
+```bash
+python3 scripts/real_benchmark.py --channels benchmarks/channels.txt --hypotheses benchmarks/hypotheses-real.json --per-channel 300 --out docs/real-benchmark-YYYY-MM-DD.json
+python3 scripts/render_cards.py docs/real-benchmark-YYYY-MM-DD.json
+```
 
-Do not market this as '50 hours of video watched in N seconds', '3000% more productive', '99% time saved' or '30× faster analysis' without measuring a comparable human task.
+It needs `yt-dlp` and a network connection. It sends one listing request per page per channel, one second apart, and downloads no video.
 
-To measure real business productivity, run a separate controlled human-vs-assisted study using the **same** decision task (e.g., triage 100 video *metadata records* for anomalies), time both groups, score accuracy/recall against a blind independent reference, and report speedup as `human_minutes / automated_minutes` and time saved as `(human_minutes - automated_minutes)/human_minutes × 100`, including sample size and error bars. Do not extrapolate visual watch time to metadata triage.
+## What is measured
 
-The CI benchmark writes `benchmark-results.json` to a downloadable GitHub Actions artifact. Only use observed numbers with a link to the exact Actions run, Python version and date.
+| Number | How it is obtained |
+|---|---|
+| Videos read | The newest regular videos (up to 300) of each public channel in `benchmarks/channels.txt`, listed with `yt-dlp --flat-playlist`: URL, title, view count, duration, approximate date. |
+| Watch time | The sum of the real durations of those videos: one person watching each video once, with no breaks. |
+| SignalForge time | Wall-clock seconds, on the machine named in the results file, for collection + scoring (median of 7 timed runs after a warm-up) + the pre-registered rule tests. |
+| Ratio | Watch time divided by SignalForge time. |
+| Rule verdicts | `benchmarks/hypotheses-real.json` was written before the data was collected. Each rule is tested inside each channel and corrected for multiple tests. |
+
+## What the ratio means, and what it does not
+
+SignalForge reads metadata. It does not watch, download, transcribe or understand any video. The ratio says how much sooner you have the whole list scored than a person would finish watching it, so you can choose the few videos worth watching. It is not a claim about comprehension.
+
+View counts come from the listing page and are rounded by the platform. Dates are approximate ("3 weeks ago"). Collection time depends on the network and on the one-second pause between requests. A channel that returns no videos is reported with 0 and left out.
+
+Raw records stay on the machine that ran the collection. The repository holds only the aggregate results file.
+
+## Checks that run on every change
+
+- `tests/test_published_results.py` fails if the README or either card shows a number that is not in the results file, or if the ratio is not the arithmetic of the measured times.
+- `scripts/benchmark.py` is a speed regression check for CI on generated records. Its numbers are not shown as results.
+- `examples/study/` is a known-answer check: the sample has a ×1.5 title effect built in, and the test passes only if the tool recovers it.

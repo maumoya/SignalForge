@@ -1,4 +1,4 @@
-"""Write the synthetic study sample. Invented creators and titles; fixed seed.
+"""Write the known-answer study sample. Invented creators and titles; fixed seed.
 
 Planted effects: a number in the title lifts views about 1.5x, the word
 "tutorial" cuts them to about 0.7x, a question mark does nothing.
