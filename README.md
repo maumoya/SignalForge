@@ -10,7 +10,8 @@
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/Open%20Source-OSI%20approved-3DA639?logo=opensourceinitiative&amp;logoColor=white" alt="OSI-approved open source license"></a>
   <a href="PRIVACY.md"><img src="https://img.shields.io/badge/privacy-no%20tracking%20%C2%B7%20offline-7c5cfc" alt="No tracking, offline processing"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/maumoya/SignalForge"><img src="https://api.scorecard.dev/projects/github.com/maumoya/SignalForge/badge" alt="Live OpenSSF Scorecard, not a hardcoded score"></a>
-  <img src="https://img.shields.io/badge/release-pre--release-777777" alt="Pre-release; signed public release pending">
+  <a href="https://www.bestpractices.dev/projects/16519"><img src="https://www.bestpractices.dev/projects/16519/badge" alt="OpenSSF Best Practices, passing"></a>
+  <a href="https://github.com/maumoya/SignalForge/releases/latest"><img src="https://img.shields.io/github/v/release/maumoya/SignalForge?color=2da44e" alt="Latest signed release"></a>
 </p>
 
 <p align="center">
