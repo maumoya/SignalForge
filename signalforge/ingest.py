@@ -23,7 +23,8 @@ def convert_line(row: object, topic: str="") -> dict | None:
         published=f"{day[:4]}-{day[4:6]}-{day[6:]}T00:00:00+00:00"
     views=row.get("view_count"); duration=row.get("duration")
     out={"url":url,"platform":str(row.get("extractor_key") or row.get("extractor") or "").lower().split(":")[0],
-        "creator":str(row.get("uploader_id") or row.get("channel_id") or row.get("channel") or row.get("uploader") or ""),
+        "creator":str(row.get("uploader_id") or row.get("channel_id") or row.get("channel") or row.get("uploader")
+            or row.get("playlist_uploader_id") or row.get("playlist_channel_id") or ""),
         "title":row.get("title") if isinstance(row.get("title"),str) else "","topic":topic,
         "views":views if isinstance(views,int) and not isinstance(views,bool) else None,"published_at":published}
     if isinstance(duration,(int,float)) and not isinstance(duration,bool) and duration>0: out["duration_seconds"]=duration

@@ -1,0 +1,332 @@
+{
+  "schema_version": "signalforge-real-benchmark/1.0",
+  "benchmark_type": "real-public-metadata",
+  "measured_at": "2026-11-10T05:45:50+00:00",
+  "channels_requested": 24,
+  "channels_with_videos": 23,
+  "videos_collected": 6855,
+  "videos_scored": 6855,
+  "videos_with_creator_baseline": 6589,
+  "videos_over_3x_own_channel_median": 1117,
+  "videos_over_10x_own_channel_median": 340,
+  "videos_with_duration": 6854,
+  "median_video_seconds": 677.0,
+  "watch_hours_once_each": 3557.9,
+  "collect_seconds": 292.7,
+  "analyze_median_seconds": 0.1595,
+  "rules_seconds": 0.1982,
+  "skill_total_seconds": 293.0,
+  "watch_time_over_skill_time": 43712,
+  "analyze_repeats": 7,
+  "per_channel": [
+    {
+      "channel": "@NASA",
+      "videos": 300,
+      "collect_seconds": 11.7
+    },
+    {
+      "channel": "@TED",
+      "videos": 300,
+      "collect_seconds": 11.71
+    },
+    {
+      "channel": "@TEDEd",
+      "videos": 300,
+      "collect_seconds": 11.9
+    },
+    {
+      "channel": "@khanacademy",
+      "videos": 300,
+      "collect_seconds": 11.96
+    },
+    {
+      "channel": "@NatGeo",
+      "videos": 300,
+      "collect_seconds": 13.23
+    },
+    {
+      "channel": "@bbcearth",
+      "videos": 300,
+      "collect_seconds": 12.25
+    },
+    {
+      "channel": "@GoogleDevelopers",
+      "videos": 300,
+      "collect_seconds": 11.95
+    },
+    {
+      "channel": "@freecodecamp",
+      "videos": 300,
+      "collect_seconds": 11.99
+    },
+    {
+      "channel": "@mitocw",
+      "videos": 300,
+      "collect_seconds": 12.06
+    },
+    {
+      "channel": "@crashcourse",
+      "videos": 300,
+      "collect_seconds": 11.84
+    },
+    {
+      "channel": "@kurzgesagt",
+      "videos": 255,
+      "collect_seconds": 10.92
+    },
+    {
+      "channel": "@Vox",
+      "videos": 300,
+      "collect_seconds": 11.94
+    },
+    {
+      "channel": "@WIRED",
+      "videos": 300,
+      "collect_seconds": 12.15
+    },
+    {
+      "channel": "@SciShow",
+      "videos": 300,
+      "collect_seconds": 12.91
+    },
+    {
+      "channel": "@numberphile",
+      "videos": 300,
+      "collect_seconds": 18.9
+    },
+    {
+      "channel": "@NASAJPL",
+      "videos": 300,
+      "collect_seconds": 12.39
+    },
+    {
+      "channel": "@TheRoyalInstitution",
+      "videos": 300,
+      "collect_seconds": 12.3
+    },
+    {
+      "channel": "@Computerphile",
+      "videos": 300,
+      "collect_seconds": 12.15
+    },
+    {
+      "channel": "@pbsspacetime",
+      "videos": 300,
+      "collect_seconds": 12.01
+    },
+    {
+      "channel": "@NatureVideoChannel",
+      "videos": 300,
+      "collect_seconds": 11.96
+    },
+    {
+      "channel": "@BBCNews",
+      "videos": 300,
+      "collect_seconds": 12.18
+    },
+    {
+      "channel": "@ESA",
+      "videos": 0,
+      "collect_seconds": 8.26
+    },
+    {
+      "channel": "@Google",
+      "videos": 300,
+      "collect_seconds": 12.04
+    },
+    {
+      "channel": "@Microsoft",
+      "videos": 300,
+      "collect_seconds": 11.94
+    }
+  ],
+  "rules": {
+    "schema_version": "signalforge-features/1.0",
+    "method": "creator-fixed-effects-log-multiplier-v1",
+    "registered_at": "2026-11-10",
+    "parameters": {
+      "minimum_neighbors": 10,
+      "drop_newest": 5,
+      "min_feature_videos": 30,
+      "min_videos_per_side_per_creator": 3,
+      "false_discovery_rate": 0.05
+    },
+    "videos_scored": 6474,
+    "creators": 23,
+    "limitations": [
+      "Associations inside creators are not causal evidence",
+      "Normal-approximation p-values are optimistic with fewer than about 30 creators",
+      "Regex features mislabel some titles; read review_examples before trusting a row",
+      "Rules describe this niche and sample only"
+    ],
+    "hypotheses": [
+      {
+        "id": "live-or-stream",
+        "field": "title",
+        "pattern": "\\blive\\b|\\bstream\\b",
+        "predicted": "down",
+        "videos_tested": 6474,
+        "videos_with_feature": 37,
+        "creators_compared": 4,
+        "effect_multiplier": 0.599,
+        "ci95": [
+          0.38,
+          0.943
+        ],
+        "p_value": 0.026849,
+        "q_value": 0.107396,
+        "share_creators_up": 0.25,
+        "share_creators_as_predicted": 0.75,
+        "verdict": "not supported",
+        "review_examples": [
+          "March Feature Drop: Gemini Live, Scam Detection & more! | Made by Google Podcast S7E2",
+          "Ri Science Podcast - From the Excel: Upcoming science in 2026 from New Scientist Live",
+          "How to Live a Good Life — on Earth and in Space | TED Intersections",
+          "From Bold Idea to Global Legacy: 25 Years of MIT OpenCourseWare Live Webcast",
+          "Clean Room Sneak Peek: International SWOT Satellite (Live Q&A)",
+          "Can saunas make you live longer? - Max G. Levy",
+          "Instrumental: Engineers Who Make Science Possible (Live Public Talk)",
+          "Could I live forever? - Alison Woollard's 2013 Christmas Lectures 3/3",
+          "How to Live with Your Biggest Regret | Gregg Ward | TED",
+          "Tim Walz, live at SXSW with Today, Explained"
+        ]
+      },
+      {
+        "id": "number-in-title",
+        "field": "title",
+        "pattern": "\\d",
+        "predicted": "up",
+        "videos_tested": 6474,
+        "videos_with_feature": 1850,
+        "creators_compared": 23,
+        "effect_multiplier": 0.836,
+        "ci95": [
+          0.645,
+          1.083
+        ],
+        "p_value": 0.174996,
+        "q_value": 0.349992,
+        "share_creators_up": 0.391,
+        "share_creators_as_predicted": 0.391,
+        "verdict": "not supported",
+        "review_examples": [
+          "Lec 18. Transfer Learning: Models",
+          "Session 20: Early Diagenesis II and Sediment Distributions",
+          "An amazing thing about 276 - Numberphile",
+          "Artemis Accords: Celebrating 50 Country Signatories",
+          "How to Become a K-pop Superstar — in 7 Minutes | Charlene Kaye | TED",
+          "Why Are US Politics Today So Divisive?: Crash Course US Government #1",
+          "Scaling Up (Part 1)",
+          "8: The Eye and the Retina (cont'd)",
+          "5 of Science's Weirdest Paradoxes",
+          "The Prime Number Race (with 3Blue1Brown) - Numberphile"
+        ]
+      },
+      {
+        "id": "question",
+        "field": "title",
+        "pattern": "\\?",
+        "predicted": "up",
+        "videos_tested": 6474,
+        "videos_with_feature": 934,
+        "creators_compared": 22,
+        "effect_multiplier": 1.098,
+        "ci95": [
+          0.867,
+          1.391
+        ],
+        "p_value": 0.436802,
+        "q_value": 0.582403,
+        "share_creators_up": 0.545,
+        "share_creators_as_predicted": 0.545,
+        "verdict": "not supported",
+        "review_examples": [
+          "The Fermi Paradox II — Solutions and Ideas – Where Are All The Aliens?",
+          "Can you solve the basketball riddle? - Dan Katz",
+          "Why Are US Politics Today So Divisive?: Crash Course US Government #1",
+          "Can you \"see\" images in your mind? Some people can't - Adam Zeman",
+          "Is Dark Energy Getting Stronger?",
+          "Can AI help firefighters manage wildfires? | FireSat",
+          "Why are we at war with Iran? | The Gray Area",
+          "How do fireflies create light? - Emily A. Geest",
+          "Does alien life exist? - with Nikku Madhusudhan",
+          "How Far Can We Go? Limits of Humanity (Old Version – Watch the New One)"
+        ]
+      },
+      {
+        "id": "starts-with-how-or-why",
+        "field": "title",
+        "pattern": "^(how|why)\\b",
+        "predicted": "up",
+        "videos_tested": 6474,
+        "videos_with_feature": 796,
+        "creators_compared": 22,
+        "effect_multiplier": 0.965,
+        "ci95": [
+          0.844,
+          1.104
+        ],
+        "p_value": 0.605827,
+        "q_value": 0.605827,
+        "share_creators_up": 0.409,
+        "share_creators_as_predicted": 0.409,
+        "verdict": "not supported",
+        "review_examples": [
+          "How to Become a K-pop Superstar — in 7 Minutes | Charlene Kaye | TED",
+          "How to Measure the Planet’s Heartbeat | Yadvinder Malhi | TED",
+          "Why younger Americans can’t get ahead",
+          "Why Are US Politics Today So Divisive?: Crash Course US Government #1",
+          "How We Make Money on YouTube with 20M Subs",
+          "How Play Boosts Your Creativity and Resilience | Katina Bajaj | TED",
+          "Why are we at war with Iran? | The Gray Area",
+          "How do fireflies create light? - Emily A. Geest",
+          "How Decoherence Splits The Quantum Multiverse",
+          "How Far Can We Go? Limits of Humanity (Old Version – Watch the New One)"
+        ]
+      },
+      {
+        "id": "all-caps-word",
+        "field": "title",
+        "pattern": "\\b[A-Z]{4,}\\b",
+        "predicted": "up",
+        "videos_tested": 6474,
+        "videos_with_feature": 6472,
+        "creators_compared": 0,
+        "effect_multiplier": null,
+        "ci95": null,
+        "p_value": null,
+        "q_value": null,
+        "share_creators_up": null,
+        "share_creators_as_predicted": null,
+        "verdict": "insufficient data",
+        "review_examples": [
+          "Squares and Tilings - Numberphile",
+          "Lec 18. Transfer Learning: Models",
+          "Session 20: Early Diagenesis II and Sediment Distributions",
+          "An amazing thing about 276 - Numberphile",
+          "Evacuated Ukrainians from Russian-occupied Oleshky arrive in Belarus | BBC News",
+          "Artemis Accords: Celebrating 50 Country Signatories",
+          "The machine that changed our understanding of human history - Max G. Levy",
+          "The Fermi Paradox II — Solutions and Ideas – Where Are All The Aliens?",
+          "Square & Multiply Algorithm - Computerphile",
+          "Mars Rover Team to Celebrate Persevering Students"
+        ]
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.9.6",
+    "os": "Darwin",
+    "architecture": "arm64",
+    "yt_dlp": "2026.08.19",
+    "sleep_between_requests": 1.0,
+    "per_channel_limit": 300
+  },
+  "what_this_is": [
+    "Real public metadata: titles, view counts, durations and approximate dates of each channel's newest videos",
+    "Watch time is the sum of the real video durations: one person watching each video once",
+    "Skill time is collection plus scoring plus rule tests, measured on this machine in this run",
+    "SignalForge reads metadata only. It does not watch, download or transcribe any video",
+    "View counts are rounded and dates approximate in this collection mode; counts change every day, so a rerun gives close, not identical, numbers"
+  ]
+}

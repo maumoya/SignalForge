@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude%20Code-skill%20%2B%20plugin-7c5cfc" alt="Claude Code skill and plugin">
-  <a href="#results-measured-2026-11-09"><img src="https://img.shields.io/badge/metadata%20throughput-35%2C147%2Fsec-2da44e" alt="35,147 synthetic metadata records processed per second in a short GitHub Actions benchmark"></a>
+  <a href="#results-measured-2026-11-10"><img src="https://img.shields.io/badge/6%2C855%20real%20videos-read%20in%20293%20s-2da44e" alt="6,855 real videos read and scored in 293 seconds, measured 2026-11-10"></a>
   <a href="https://github.com/maumoya/SignalForge/actions/workflows/test.yml"><img src="https://github.com/maumoya/SignalForge/actions/workflows/test.yml/badge.svg" alt="GitHub CI tests"></a>
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/Open%20Source-OSI%20approved-3DA639?logo=opensourceinitiative&amp;logoColor=white" alt="OSI-approved open source license"></a>
@@ -14,11 +14,11 @@
 </p>
 
 <p align="center">
-  <img src="assets/demo.svg" width="900" alt="Slow 20-second, single-scene SignalForge workflow: collect video metadata or opt-in public GitHub search; compare a synthetic 8x outlier; validate data; output an approval-gated research lead.">
+  <a href="#results-measured-2026-11-10"><img src="assets/demo.gif" width="900" alt="Ten-second animation of a run measured on 2026-11-10. SignalForge reads the public metadata of 6,855 real videos from 23 public channels while a counter runs up. Two bars compare the time: SignalForge finishes in 293 seconds, one person watching each video once needs 3,558 hours, 148 days nonstop. The ratio is 43,712 times."></a>
 </p>
 
 <p align="center">
-  <a href="#results-measured-2026-11-09"><img src="assets/bench-card.svg" width="760" alt="SignalForge measured metadata performance: 3,000 synthetic video records, 50 hours of hypothetical one-minute content represented, 12 topics, 0.08536 seconds median CPU runtime. No video playback or measured human time savings."></a>
+  <a href="#results-measured-2026-11-10"><img src="assets/bench-card.svg" width="760" alt="Measured on real videos, 2026-11-10: 6,855 real videos read and scored, 3,558 hours to watch each one once, 293 seconds for SignalForge to collect and score them, 23 public channels. SignalForge reads metadata; it does not watch or download videos."></a>
 </p>
 
 # SignalForge
@@ -27,7 +27,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
+> **Current scope (v0.2.0):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated card and the Results section show a run on real public videos; the 8× walk-through below is a small worked example.
 
 ## Install
 
@@ -49,7 +49,7 @@ python -m signalforge examples/sample.json --out report.json
 python -m signalforge examples/sample.json --candidates --out leads.json
 ```
 
-**Niche study: which title and hook rules hold across creators (offline, synthetic sample included):**
+**Niche study: which title and hook rules hold across creators (offline, known-answer sample included):**
 ```bash
 python -m signalforge examples/study/videos.json --min-neighbors 10 --drop-newest 5
 python -m signalforge.features examples/study/videos.json --hypotheses examples/study/hypotheses.json
@@ -77,7 +77,7 @@ Relative performance:           8.0×
 Decision:                       Investigate, don't auto-adopt
 ```
 
-That 8.0× example is synthetic, verified by the unit test `test_relative_baseline`. It is **not** a real-world growth claim.
+That 8.0× is a worked example with a known answer, checked by the unit test `test_relative_baseline`. For numbers from real videos see [Results](#results-measured-2026-11-10).
 
 | Stage | SignalForge does | Why it matters |
 |---|---|---|
@@ -106,39 +106,43 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 
 Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier (`--min-neighbors` raises this; `--drop-newest N` leaves each creator's newest N uploads unscored because their views are still growing). Optional `hook` and `duration_seconds` fields are kept when present. No HTTP requests are made by the offline **video** engine.
 
-## Results (measured 2026-11-09)
+## Results (measured 2026-11-10)
 
-**The result in business terms:** A catalog representing **3,000 one-minute videos (50 hours of potential viewing)** can be checked for relative-performance signals and grouped into **12 topics** from already-collected metadata in **less than 0.1 second** of measured CPU time. This makes it practical to shortlist what to investigate before anyone chooses what to watch. It does **not** imply that the skill watched the 50 hours or that collecting the metadata takes 0.1 second.
+**In plain terms:** SignalForge read and scored **6,855 real videos** from **23 public channels** in **293 seconds**. One person watching each of those videos once would need **3,558 hours**, which is 148 days without a break. That is **×43,712**. SignalForge does not watch the videos: it reads their public titles, view counts, durations and dates, then tells you which few are worth your time.
 
-**Performance, reproduced in GitHub Actions:** 3,000 synthetic video-metadata records processed in a median **0.08536 seconds** across seven timed Python runs, after one warm-up. That's **35,147 metadata records per second** under the measured conditions. The dataset has 3,000 fictitious 60-second clips, which represent **50 hours of hypothetical playback time**, not 50 hours of material actually watched or understood.
-
-At that *instantaneous test rate*, a simple one-hour linear extrapolation is about **126.5 million records**. This is **not** a sustained one-hour measurement, an ingestion/API benchmark or a forecast of real-world operational throughput. We did **not** measure a human doing the same metadata-triage task, so we cannot responsibly claim a percentage of human time saved. Avoid interpreting this as 3,000% more productive.
-
-[Reproduce the benchmark](docs/benchmark-methodology.md) · [GitHub Actions measured run](https://github.com/maumoya/SignalForge/actions/runs/42539436259) · [Performance script](scripts/benchmark.py).
-
-| Benchmark | Value | Scope |
+| Measured on real videos | Value | How |
 |---|---:|---|
-| Records analyzed | **3,000** | Synthetic metadata, not audiovisual contents |
-| Median runtime, seven runs | **0.08536 seconds** | Python 3.11.18 / Linux x86-64 |
-| Metadata records/second | **35,147** | Measured short-run throughput |
-| Hypothetical clip durations represented | **50 hours** | 3,000 × 60 seconds; videos were **not** played |
-| Human productivity improvement | **Not measured** | Requires a controlled comparable baseline |
+| Videos read and scored | **6,855** | Newest regular videos, up to 300 per channel, 23 public channels |
+| Time to watch each one once | **3,558 hours** | Sum of the real video durations (median video: 11 min 17 s) |
+| SignalForge, collect + score + rule tests | **293 seconds** | Wall clock, one desktop, one request per second |
+| Scoring alone | **0.16 seconds** | Median of 7 timed runs after a warm-up |
+| Watch time ÷ SignalForge time | **×43,712** | 3,558 h × 3,600 ÷ 293 s |
+| Videos over 3× their own channel's median | **1,117** (17%) | Same-channel baseline, 6,589 videos had enough neighbors |
+| Videos over 10× their own channel's median | **340** (5%) | The shortlist to open first |
 
+**What it found about title rules.** Five common title rules were written down before the data was collected ([hypotheses](benchmarks/hypotheses-real.json)) and tested inside each channel. **None held up**: a number in the title (×0.84, 95% interval 0.65 to 1.08), a question mark (×1.10, 0.87 to 1.39), starting with "how" or "why" (×0.97, 0.84 to 1.10) and "live" or "stream" (×0.60, 0.38 to 0.94, not significant after correction) were not supported, and one rule matched almost every title so it could not be tested. On these 23 channels, the popular title tips are not evidence.
 
+[Results file](docs/real-benchmark-2026-11-10.json) · [Method and limits](docs/benchmark-methodology.md) · [Channel list](benchmarks/channels.txt) · [Measurement script](scripts/real_benchmark.py)
 
-**What we actually tested:** the Python 3 standard-library core with synthetic video fixtures, mocked GitHub API responses and adversarial input cases. GitHub Actions tests and lint completed successfully on the public discovery branch. The 25 tests include creator-relative baseline, sparse data, deduplication, public/private URL handling, inert hostile titles, owner approval gates, no-overwrite outputs, GitHub public API origin checks, redirect rejection and read-only public repository leads.
+Repeat it yourself (needs `yt-dlp`, about five minutes, downloads no video):
+
+```bash
+python3 scripts/real_benchmark.py --channels benchmarks/channels.txt --hypotheses benchmarks/hypotheses-real.json --out my-run.json
+```
+
+**Checks behind the code:**
 
 | Check | Observed result | Evidence |
 |---|---|---|
-| Python unit tests | **43/43 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/) |
-| Planted-effect recovery | Synthetic sample with a planted ×1.5 title effect returns **×1.46** (95% interval 1.34 to 1.59) | [sample generator](examples/study/make_sample.py), [test_study](tests/test_study.py) |
+| Python unit tests | **48/48 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/) |
+| Published numbers match the results file | **Enforced in CI** | [test_published_results](tests/test_published_results.py) |
+| Known-answer check | A sample with a ×1.5 title effect built in returns **×1.46** (95% interval 1.34 to 1.59) | [sample generator](examples/study/make_sample.py), [test_study](tests/test_study.py) |
 | Required runtime dependencies | **0** | [pyproject.toml](pyproject.toml) |
-| Synthetic outlier check | **8.0×**, with 800 views / 100 baseline | [test_relative_baseline](tests/test_core.py) |
 | Read-only handoff | **Enabled**; adoption requires approval | [export schema](skills/signalforge/references/integration.md) |
 | OpenSSF | **Live report**, not an arbitrary certification | [Scorecard viewer](https://scorecard.dev/viewer/?uri=github.com/maumoya/SignalForge) |
 | LLM skill eval / live install | **Not yet executed** | [Validation status](VALIDATION.md) |
 
-**Limitations:** these are local/synthetic checks, not a measured with-vs-without skill benefit, not a performance comparison against other tools and not evidence of real-world viral prediction accuracy. The heuristic topic score is not a probability, forecast, or recommendation to deploy software.
+**Limits:** one run, one day, 23 large English-language channels, regular videos only (the Shorts listing carries no duration or date). View counts are rounded by the platform and dates are approximate. The ratio compares reading metadata with watching, not understanding. Associations inside channels are not causes, and the topic score is not a forecast.
 
 ## Security and privacy
 

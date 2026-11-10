@@ -11,4 +11,4 @@ Collection safeguards: HTTPS to a hardcoded API endpoint only; redirect refusal;
 
 Downstream verification must inspect maintained commits, dependencies, license, advisories, reproducibility and relevance before ever considering implementation.
 
-All CI tests use in-memory simulated API responses; no network requests occur in tests.
+All CI tests use in-memory canned API responses; no network requests occur in tests.

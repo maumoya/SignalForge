@@ -10,7 +10,7 @@ test -f LICENSE
 test -f evals/triggers.json
 grep -q '^name: signalforge$' skills/signalforge/SKILL.md
 grep -q '^description:' skills/signalforge/SKILL.md
-jq -e '.name=="signalforge" and .version=="0.1.0"' .claude-plugin/plugin.json >/dev/null
+jq -e '.name=="signalforge" and .version=="0.2.0"' .claude-plugin/plugin.json >/dev/null
 jq -e '.plugins | any(.name=="signalforge")' .claude-plugin/marketplace.json >/dev/null
 jq -e '.skill=="signalforge" and ([.queries[] | select(.trigger==true)]|length)>=5 and ([.queries[] | select(.trigger==false)]|length)>=3' evals/triggers.json >/dev/null
 python -m compileall -q signalforge

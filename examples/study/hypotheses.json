@@ -1,6 +1,6 @@
 {
   "registered_at": "2026-11-10",
-  "note": "Written before running the test. Synthetic sample; see make_sample.py.",
+  "note": "Written before running the test. Known-answer sample; see make_sample.py.",
   "hypotheses": [
     {"id": "number-in-title", "field": "title", "pattern": "\\d", "direction": "up"},
     {"id": "tutorial-word", "field": "title", "pattern": "\\btutorial\\b", "direction": "up"},

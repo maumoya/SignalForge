@@ -1,0 +1,11 @@
+{
+  "registered_at": "2026-11-10",
+  "note": "Written before the first collection run on real public metadata. Title-only rules, tested inside each channel.",
+  "hypotheses": [
+    {"id": "number-in-title", "field": "title", "pattern": "\\d", "direction": "up"},
+    {"id": "question", "field": "title", "pattern": "\\?", "direction": "up"},
+    {"id": "starts-with-how-or-why", "field": "title", "pattern": "^(how|why)\\b", "direction": "up"},
+    {"id": "all-caps-word", "field": "title", "pattern": "\\b[A-Z]{4,}\\b", "direction": "up"},
+    {"id": "live-or-stream", "field": "title", "pattern": "\\blive\\b|\\bstream\\b", "direction": "down"}
+  ]
+}

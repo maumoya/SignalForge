@@ -1,81 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title description">
-<title id="title">SignalForge: a slow, readable four-stage intelligence workflow</title>
-<desc id="description">An illustrative 20-second animation with a stable screen. A user-provided video JSON and an opt-in GitHub API query flow into a SignalForge intelligence core. Four phases appear sequentially: collect, compare with the creator baseline, validate sources and output a read-only research lead. Video results use synthetic 21-item data, 100 median views and an 8.0 times outlier. No malware scan, growth prediction or time-savings benchmark is claimed.</desc>
+<title id="title">SignalForge read 6,855 real videos in 293 seconds; watching them once each takes 3,558 hours</title>
+<desc id="description">A 10-second animation of a run measured on 2026-11-10. SignalForge reads the public metadata of 6,855 real videos from 23 public channels while a counter runs up. Two bars compare the measured time: 293 seconds for SignalForge to collect and score them all, against 3,558 hours (148 days nonstop) for one person to watch each video once. The ratio is 43,712 times. SignalForge reads metadata; it does not watch videos.</desc>
 <defs>
   <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#100c26"/><stop offset="1" stop-color="#18143b"/></linearGradient>
-  <linearGradient id="eye" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset=".52" stop-color="#55e1df"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
-  <linearGradient id="bar" x1="0" x2="1"><stop stop-color="#845cf6"/><stop offset="1" stop-color="#4fe6d2"/></linearGradient>
-  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+  <linearGradient id="fast" x1="0" x2="1"><stop stop-color="#3ddbb2"/><stop offset="1" stop-color="#80f7e3"/></linearGradient>
+  <linearGradient id="slow" x1="0" x2="1"><stop stop-color="#b9792a"/><stop offset="1" stop-color="#ffdf84"/></linearGradient>
+  <pattern id="dim" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="12" height="12" rx="2.5" fill="#2a2251"/></pattern>
+  <pattern id="lit" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="12" height="12" rx="2.5" fill="#6f58d6"/><rect x="2.5" y="3" width="7" height="1.6" fill="#c9bbff"/><rect x="2.5" y="6.4" width="5" height="1.6" fill="#8ff0e2"/></pattern>
+  <clipPath id="scan"><rect x="42" y="150" height="96" width="0"><animate attributeName="width" dur="10s" repeatCount="indefinite" keyTimes="0;0.02;0.27;0.99;1" values="0;0;640;640;0"/></rect></clipPath>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
 </defs>
 <rect width="960" height="540" rx="24" fill="url(#bg)"/>
 <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
- <g transform="translate(35 31)">
+ <g transform="translate(35 28)">
   <path d="M21 0 4 23h13L7 46l36-31H27L34 0Z" fill="#ae84ff"/>
   <text x="52" y="31" font-size="31" font-weight="800" fill="#fff">Signal<tspan fill="#b68cff">Forge</tspan></text>
-  <text x="54" y="56" font-size="14" fill="#b8b0d4">Discover. Validate. Prioritize.</text>
+  <text x="54" y="54" font-size="14" fill="#b8b0d4">Reads the whole niche while you would still be on video one.</text>
  </g>
- <rect x="743" y="35" width="178" height="32" rx="16" fill="#251c48" stroke="#52436c"/>
- <text x="832" y="56" font-size="12" font-weight="600" fill="#d3c5f7" text-anchor="middle">20-SECOND WALKTHROUGH</text>
- <path d="M34 105 H925" stroke="#42335c" stroke-width="1"/>
- <text x="42" y="139" fill="#aa9dca" font-size="12" font-weight="700" letter-spacing="1.6">01  SOURCES</text>
- <text x="321" y="139" fill="#aa9dca" font-size="12" font-weight="700" letter-spacing="1.6">02  INTELLIGENCE</text>
- <text x="682" y="139" fill="#aa9dca" font-size="12" font-weight="700" letter-spacing="1.6">03  RESEARCH LEAD</text>
+ <rect x="716" y="33" width="208" height="32" rx="16" fill="#123d3b" stroke="#2f8f86"/>
+ <text x="820" y="54" font-size="12" font-weight="700" fill="#8ff0e2" text-anchor="middle" letter-spacing="1">MEASURED RUN · 2026-11-10</text>
+ <path d="M34 100H925" stroke="#42335c"/>
 
- <rect x="34" y="159" width="232" height="268" rx="17" fill="#1a1536" stroke="#46365f"/>
- <rect x="50" y="179" width="200" height="76" rx="12" fill="#27204b" stroke="#745ac1"/>
- <circle cx="70" cy="201" r="7" fill="#b18cff"/>
- <text x="87" y="206" fill="#fff" font-size="16" font-weight="700">Video metadata</text>
- <text x="67" y="232" fill="#bcb0da" font-size="13">JSON file · offline</text>
- <rect x="50" y="270" width="200" height="76" rx="12" fill="#27204b" stroke="#745ac1"/>
- <circle cx="70" cy="292" r="7" fill="#5fe6d7"/>
- <text x="87" y="297" fill="#fff" font-size="16" font-weight="700">GitHub search</text>
- <text x="67" y="323" fill="#bcb0da" font-size="13">Public API · opt-in</text>
- <rect x="50" y="361" width="200" height="48" rx="10" fill="#191631" stroke="#3b3156"/>
- <text x="67" y="383" fill="#958aad" font-size="13">Reels · News · PDFs</text>
- <text x="67" y="399" fill="#796e96" font-size="11">Future integrations</text>
+ <text x="42" y="134" fill="#aa9dca" font-size="12" font-weight="700" letter-spacing="1.6">01  REAL VIDEOS READ · 23 PUBLIC CHANNELS</text>
+ <rect x="42" y="150" width="640" height="96" fill="url(#dim)"/>
+ <rect x="42" y="150" width="640" height="96" fill="url(#lit)" clip-path="url(#scan)"/>
+ <rect x="40" y="146" width="5" height="104" rx="2.5" fill="#9ff8ec" filter="url(#glow)" opacity="0"><animate attributeName="x" dur="10s" repeatCount="indefinite" keyTimes="0;0.02;0.27;1" values="40;40;680;680"/><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.02;0.27;1" values="0;1;0;0"/></rect>
+ <rect x="706" y="146" width="220" height="104" rx="14" fill="#1a1536" stroke="#46365f"/>
+ <text x="816" y="170" text-anchor="middle" fill="#b2a6d2" font-size="13">videos read and scored</text>
+ <text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#4a4270">0<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.045;1" values="1;0;0"/></text>
+ <text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">686<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0200;0.0450;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">1,371<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0450;0.0700;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">2,056<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0700;0.0950;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">2,742<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0950;0.1200;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">3,428<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1200;0.1450;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">4,113<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1450;0.1700;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">4,798<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1700;0.1950;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">5,484<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1950;0.2200;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">6,170<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2200;0.2450;1" values="0;1;0;0"/></text>
+<text x="816" y="213" text-anchor="middle" font-size="46" font-weight="800" fill="#75e7d8" opacity="0">6,855<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2450;0.9900;1" values="0;1;0;0"/></text>
+ <text x="816" y="238" text-anchor="middle" fill="#8d80ab" font-size="12">titles · views · durations · dates</text>
 
- <path d="M265 216 C298 216 297 274 324 274" stroke="#6c5db1" stroke-width="2" fill="none" opacity=".45"/>
- <path d="M265 309 C298 309 297 274 324 274" stroke="#5bd8cd" stroke-width="2" fill="none" opacity=".45"/>
- <g opacity="0"><path d="M265 216 C298 216 297 274 324 274" stroke="#b69cff" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M265 309 C298 309 297 274 324 274" stroke="#52e2da" stroke-width="4" stroke-linecap="round" fill="none"/><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.100;0.125;0.325;0.350;1" values="0;0;1;1;0;0"/></g>
+ <text x="42" y="286" fill="#aa9dca" font-size="12" font-weight="700" letter-spacing="1.6">02  TIME TO GET THROUGH THE SAME 6,855 VIDEOS</text>
+ <text x="42" y="316" fill="#fff" font-size="16" font-weight="700">SignalForge <tspan fill="#b8b0d4" font-weight="400">collects and scores every one</tspan></text>
+ <rect x="42" y="326" width="640" height="24" rx="7" fill="#221b45"/>
+ <g opacity="0"><rect x="42" y="326" width="7" height="24" rx="3" fill="url(#fast)"/><text x="60" y="344" fill="#8ff0e2" font-size="16" font-weight="800">✓ done in 293 seconds</text><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.27;0.99;1" values="0;1;1;0"/></g>
+ <text x="42" y="386" fill="#fff" font-size="16" font-weight="700">One person <tspan fill="#b8b0d4" font-weight="400">watches each video once</tspan></text>
+ <rect x="42" y="396" width="640" height="24" rx="7" fill="#221b45"/>
+ <rect x="42" y="396" width="0" height="24" rx="7" fill="url(#slow)"><animate attributeName="width" dur="10s" repeatCount="indefinite" keyTimes="0;0.30;0.84;0.99;1" values="0;0;640;640;0"/></rect>
+ <text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">day 25 of 148, still watching<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.3000;0.3900;1" values="0;1;0;0"/></text>
+<text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">day 49 of 148, still watching<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.3900;0.4800;1" values="0;1;0;0"/></text>
+<text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">day 74 of 148, still watching<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.4800;0.5700;1" values="0;1;0;0"/></text>
+<text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">day 99 of 148, still watching<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.5700;0.6600;1" values="0;1;0;0"/></text>
+<text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">day 124 of 148, still watching<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.6600;0.7500;1" values="0;1;0;0"/></text>
+<text x="42" y="437" font-size="15" fill="#f7d67e" font-weight="650" opacity="0">3,558 hours = 148 days nonstop<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.7500;0.9900;1" values="0;1;0;0"/></text>
+ <text x="42" y="462" fill="#8d80ab" font-size="12">To scale, SignalForge's bar is 0.015 of a pixel wide. It is drawn at 7 px so you can see it.</text>
 
- <rect x="323" y="159" width="310" height="268" rx="17" fill="#1b1739" stroke="#53427a"/>
- <circle cx="478" cy="245" r="72" fill="none" stroke="#594a85" opacity=".48"/>
- <circle cx="478" cy="245" r="57" fill="none" stroke="#6b5ba0" opacity=".6"/>
- <path d="M401 245 Q478 175 555 245 Q478 315 401 245Z" fill="#231b49" stroke="url(#eye)" stroke-width="3"/>
- <circle cx="478" cy="245" r="30" fill="#3f2b76" stroke="#4edfd4" stroke-width="3"/>
- <circle cx="478" cy="245" r="15" fill="#5de6dc"/>
- <circle cx="486" cy="235" r="5" fill="#f2ffff" opacity=".8"/>
- <g opacity="0"><circle cx="478" cy="245" r="43" fill="none" stroke="#6cf4e5" stroke-width="4" filter="url(#glow)"/><circle cx="478" cy="245" r="30" fill="none" stroke="#79f7ed" stroke-width="2"/><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.250;0.275;0.575;0.600;1" values="0;0;1;1;0;0"/></g>
- <text x="478" y="341" text-anchor="middle" fill="#f0eaff" font-weight="750" font-size="20">Signal analysis</text>
- <text x="478" y="363" text-anchor="middle" fill="#b4a8cf" font-size="13">Deterministic · explainable</text>
- <g opacity="0"><rect x="364" y="380" width="227" height="29" rx="14" fill="#2a2151"/><text x="478" y="400" fill="#bfa5ff" text-anchor="middle" font-size="13">21 synthetic video records</text><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.100;0.125;0.375;0.400;1" values="0;0;1;1;0;0"/></g>
- <g opacity="0"><rect x="355" y="380" width="246" height="29" rx="14" fill="#2a2151"/><text x="478" y="400" fill="#bfa5ff" text-anchor="middle" font-size="13">Median baseline · 100 views</text><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.400;0.425;0.625;0.650;1" values="0;0;1;1;0;0"/></g>
- <g opacity="0"><rect x="355" y="380" width="246" height="29" rx="14" fill="#123d3b"/><text x="478" y="400" fill="#74e6cb" text-anchor="middle" font-size="13">URL &amp; trust-boundary checks</text><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.650;0.675;0.875;0.900;1" values="0;0;1;1;0;0"/></g>
+ <rect x="706" y="270" width="220" height="196" rx="14" fill="#1a1536" stroke="#46365f"/>
+ <text x="816" y="300" text-anchor="middle" fill="#b2a6d2" font-size="13">watch time ÷ SignalForge time</text>
+ <text x="816" y="380" text-anchor="middle" fill="#4a4270" font-size="60" font-weight="800">×?<animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.84;0.99;1" values="1;0;0;1"/></text>
+ <g opacity="0"><circle cx="816" cy="360" r="62" fill="#3ddbb2" opacity=".22" filter="url(#glow)"/><text x="816" y="380" text-anchor="middle" fill="#75e7d8" font-size="46" font-weight="800">×43,712</text><text x="816" y="418" text-anchor="middle" fill="#f0eaff" font-size="14" font-weight="650">faster than watching</text><text x="816" y="442" text-anchor="middle" fill="#8d80ab" font-size="12">3,558 h against 293 s</text><animate attributeName="opacity" dur="10s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.84;0.99;1" values="0;1;1;0"/></g>
 
- <path d="M634 283 H672" fill="none" stroke="#61519e" stroke-width="2"/>
- <g opacity="0"><path d="M634 283 H672" fill="none" stroke="#5fe6df" stroke-width="4" stroke-linecap="round"/><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.650;0.675;0.925;0.950;1" values="0;0;1;1;0;0"/></g>
- <rect x="673" y="159" width="251" height="268" rx="17" fill="#1a1536" stroke="#46365f"/>
- <text x="691" y="193" fill="#b2a6d2" font-size="14">Relative performance</text>
- <text x="691" y="245" fill="#9b8fae" font-size="45" font-weight="800">—</text>
- <g opacity="0"><rect x="688" y="203" width="220" height="69" fill="#1a1536"/><text x="692" y="247" fill="#75e7d8" font-size="46" font-weight="800">8.0×</text><text x="826" y="243" fill="#bfb3d5" font-size="12">sample outlier</text><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.600;0.99;1" values="0;1;1;0"/></g>
- <path d="M691 277 H906" stroke="#3b3158"/>
- <text x="691" y="307" fill="#b2a6d2" font-size="14">Decision</text>
- <text x="691" y="335" fill="#726784" font-size="16">Pending analysis</text>
- <g opacity="0"><rect x="685" y="312" width="223" height="44" rx="9" fill="#1a1536"/><text x="692" y="337" fill="#f7d67e" font-size="18" font-weight="750">Investigate only</text><animate attributeName="opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.800;0.99;1" values="0;1;1;0"/></g>
- <rect x="690" y="367" width="217" height="38" rx="9" fill="#24203e" stroke="#433760"/>
- <text x="799" y="391" fill="#ab9dcb" text-anchor="middle" font-size="13">Owner approval required</text>
-
- <text x="42" y="469" fill="#c5b8e0" font-size="14" font-weight="700">PROCESS</text>
- <g>
-  <rect x="143" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.001;0.250;1" values=".18;1;.18;.18"/></rect>
-  <rect x="326" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.250;0.500;1" values=".18;1;.18;.18"/></rect>
-  <rect x="509" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.500;0.750;1" values=".18;1;.18;.18"/></rect>
-  <rect x="692" y="452" width="171" height="22" rx="7" fill="#6d58ba" fill-opacity=".18"><animate attributeName="fill-opacity" dur="20s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.750;0.990;1" values=".18;1;.18;.18"/></rect>
-  <text x="228" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Collect</text>
-  <text x="412" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Compare</text>
-  <text x="594" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Validate</text>
-  <text x="777" y="468" fill="#e3daf8" text-anchor="middle" font-size="13">Prioritize</text>
- </g>
- <text x="42" y="511" fill="#8d80ab" font-size="12">Illustrative workflow · synthetic views · URL validation is not malware scanning · no claimed time savings</text>
+ <text x="42" y="505" fill="#8d80ab" font-size="12">Real public metadata, measured 2026-11-10 on one desktop · SignalForge reads metadata, it does not watch videos · it finds what to watch first</text>
 </g>
 </svg>
