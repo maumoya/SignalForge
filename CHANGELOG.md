@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 — 2026-11-10
+- First signed release: annotated SSH-signed tag, SLSA provenance, branch ruleset on main, private vulnerability reporting.
 - Skill rewritten around a nine-step niche study: search-led sampling, channel filters, same-creator multipliers, pre-registered title and hook rules, a fixed report template and a list of mistakes to stop.
 - New `python -m signalforge.features`: tests dated, pre-registered regex rules inside each creator, with clustered 95% intervals, Benjamini-Hochberg q-values and plain verdicts.
 - New `python -m signalforge.ingest`: converts yt-dlp JSON lines into the input format (local file only, no network).
@@ -19,4 +20,4 @@
 - Integrated `your-authorship-skill` and `skill-forger-e2e` as CI audits.
 - No signed public release, Best Practices certification, live install test or LLM skill ablation has been claimed.
 
-Next: authorized video/social collectors, longitudinal trends, external evidence verification, VISION adapter and reproducible real-world benchmarks.
+Next: authorized video/social collectors, longitudinal trends, external evidence verification, agent-host adapters and reproducible real-world benchmarks.

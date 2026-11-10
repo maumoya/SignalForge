@@ -27,7 +27,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
+> **Current scope (v0.2.0):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
 
 ## Install
 

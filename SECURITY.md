@@ -4,7 +4,7 @@ SignalForge is an offline, local-first data analysis skill. Public source data, 
 
 ## Supported versions
 
-Security fixes are applied to the latest maintained release. Version 0.1.0 is a pre-release; the `main` branch is an active development target and is not a signed release.
+Security fixes are applied to the latest maintained release. Releases are signed, annotated `v*` tags with SLSA provenance, starting at v0.2.0; the `main` branch is an active development target.
 
 ## Reporting vulnerabilities privately
 
