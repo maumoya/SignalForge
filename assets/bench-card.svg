@@ -1,31 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" role="img" aria-labelledby="title desc">
-<title id="title">SignalForge metadata throughput: 3,000 videos represented, 50 hours of hypothetical playback cataloged and scored in 0.085 seconds</title>
-<desc id="desc">Measured in GitHub Actions on November 9, 2026: the engine analyzed the already collected metadata of 3,000 synthetic videos, corresponding to 50 hours of hypothetical one-minute videos, and grouped them into 12 topics. Median Python processing time was 0.08536 seconds over seven timed runs. It did not watch or understand videos. No human productivity increase was measured.</desc>
+<title id="title">SignalForge measured on real videos: 6,855 videos, 3,558 hours of watch time, read and scored in 293 seconds</title>
+<desc id="desc">Measured on 2026-11-10: SignalForge collected and scored the public metadata of 6,855 real videos from 23 public channels in 293 seconds. Watching each video once takes 3,558 hours, 43,712 times longer. Scoring alone took 0.1595 seconds (median of 7 runs). SignalForge reads metadata; it does not watch videos.</desc>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#130d32"/><stop offset=".55" stop-color="#211245"/><stop offset="1" stop-color="#0c2a38"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b2a1f"/><stop offset=".55" stop-color="#0f3a2a"/><stop offset="1" stop-color="#0c2a38"/></linearGradient>
 <linearGradient id="teal" x1="0" y1="0" x2="1"><stop stop-color="#3ddbb2"/><stop offset="1" stop-color="#80f7e3"/></linearGradient>
 <linearGradient id="gold" x1="0" y1="0" x2="1"><stop stop-color="#efb74e"/><stop offset="1" stop-color="#ffdf84"/></linearGradient>
 </defs>
 <rect width="960" height="330" rx="22" fill="url(#bg)"/>
-<rect x="1" y="1" width="958" height="328" rx="21" stroke="#59418b" stroke-width="2" fill="none"/>
+<rect x="1" y="1" width="958" height="328" rx="21" stroke="#2f8f6a" stroke-width="2" fill="none"/>
 <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
-<text x="33" y="37" font-size="15" font-weight="750" letter-spacing="2" fill="#beabe9">MEASURED METADATA THROUGHPUT</text>
-<text x="33" y="73" font-size="22" font-weight="700" fill="#fff">Thousands of videos. One research-ready catalog.</text>
-<rect x="32" y="95" width="279" height="131" rx="13" fill="#261950" stroke="#6855a6"/>
-<text x="51" y="125" fill="#c7bbdf" font-size="15">Video records scored</text>
-<text x="50" y="190" fill="url(#teal)" font-size="61" font-weight="830">3,000</text>
-<rect x="326" y="95" width="279" height="131" rx="13" fill="#251c42" stroke="#6855a6"/>
-<text x="345" y="125" fill="#c7bbdf" font-size="15">Hypothetical playback represented</text>
-<text x="345" y="190" fill="url(#gold)" font-size="60" font-weight="820">50<tspan font-size="31"> hours</tspan></text>
+<text x="33" y="37" font-size="15" font-weight="750" letter-spacing="2" fill="#9be8c8">MEASURED ON REAL VIDEOS · 2026-11-10</text>
+<text x="33" y="73" font-size="22" font-weight="700" fill="#fff">×43,712 faster than watching them. Then it tells you which to watch.</text>
+<rect x="32" y="95" width="279" height="131" rx="13" fill="#123d2e" stroke="#2f8f6a"/>
+<text x="51" y="125" fill="#bfe6d6" font-size="15">Real videos read and scored</text>
+<text x="50" y="190" fill="url(#teal)" font-size="61" font-weight="830">6,855</text>
+<rect x="326" y="95" width="279" height="131" rx="13" fill="#2c2a16" stroke="#8f7a2f"/>
+<text x="345" y="125" fill="#e6dcb7" font-size="15">Time to watch each one once</text>
+<text x="345" y="190" fill="url(#gold)" font-size="52" font-weight="820">3,558<tspan font-size="26"> hours</tspan></text>
 <rect x="620" y="95" width="307" height="131" rx="13" fill="#18313c" stroke="#4b9a96"/>
-<text x="638" y="125" fill="#b3d1d3" font-size="15">Median metadata processing</text>
-<text x="638" y="190" fill="#e9fff9" font-size="60" font-weight="820">0.085<tspan font-size="28"> sec</tspan></text>
-<path d="M33 247H927" stroke="#5a4779"/>
+<text x="638" y="125" fill="#b3d1d3" font-size="15">SignalForge, collect + score</text>
+<text x="638" y="190" fill="#e9fff9" font-size="60" font-weight="820">293<tspan font-size="28"> seconds</tspan></text>
+<path d="M33 247H927" stroke="#2f6b55"/>
 <circle cx="44" cy="272" r="7" fill="#58e5c4"/>
-<text x="61" y="278" fill="#f1eafa" font-size="17" font-weight="650">12 topics grouped</text>
+<text x="61" y="278" fill="#f1eafa" font-size="17" font-weight="650">23 public channels</text>
 <circle cx="275" cy="272" r="7" fill="#bd99ff"/>
-<text x="293" y="278" fill="#d0c6e1" font-size="16">7-run GitHub Actions median</text>
+<text x="293" y="278" fill="#d0e6dc" font-size="16">Scoring alone: 0.16 s, median of 7 runs</text>
 <circle cx="637" cy="272" r="7" fill="#f3cb74"/>
-<text x="654" y="278" fill="#e7dcf4" font-size="16">Python 3.11 · Linux</text>
-<text x="33" y="311" fill="#b2a6c5" font-size="13">Synthetic metadata only · No videos watched or transcribed · No measured human time savings</text>
+<text x="654" y="278" fill="#e7f4ec" font-size="16">Python 3.9.6 · Darwin arm64</text>
+<text x="33" y="311" fill="#a5c9b9" font-size="13">Real public metadata: titles, views, durations, dates · SignalForge reads metadata, it does not watch or download videos</text>
 </g></svg>

@@ -8,6 +8,7 @@ Skill: https://github.com/maumoya/SignalForge/blob/main/skills/signalforge/SKILL
 Install: /plugin marketplace add maumoya/SignalForge ; /plugin install signalforge@signalforge
 Alternative: npx skills add maumoya/SignalForge
 Safety: Offline video CLI; explicit public GitHub API query only for opt-in discovery; no installs or auto-adoption.
-Evidence: 43/43 synthetic Python unit tests (2026-11-10).
+Evidence: measured 2026-11-10 on real public metadata: 6,855 videos from 23 public channels read and scored in 293 seconds; watching each once takes 3,558 hours (x43,712). 48/48 unit tests.
+Results: https://github.com/maumoya/SignalForge/blob/main/docs/real-benchmark-2026-11-10.json
 Study protocol: https://github.com/maumoya/SignalForge/blob/main/skills/signalforge/references/study-protocol.md
 Release, OpenSSF Best Practices and LLM benchmark: pending.

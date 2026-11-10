@@ -7,8 +7,11 @@
 - New `python -m signalforge.ingest`: converts yt-dlp JSON lines into the input format (local file only, no network).
 - Engine options `--min-neighbors` and `--drop-newest`; reports now include the parameters used and the share of videos over 3x and 10x. Defaults are unchanged.
 - Optional `hook` and `duration_seconds` input fields.
-- Synthetic study sample with planted effects, 18 new unit tests (43 total), three new eval scenarios and a 20-query trigger set with near misses.
-- Not done: no LLM run of the eval scenarios or trigger set, and the yt-dlp commands are starting points that have not been checked against a live collection run.
+- Known-answer study sample (a ×1.5 title effect is built in and must be recovered), 48 unit tests, three new eval scenarios and a 20-query trigger set with near misses.
+- Results are now measured on real public videos: `scripts/real_benchmark.py` collects public metadata from the channels in `benchmarks/channels.txt`, times collection and scoring, and compares it with the time to watch each video once. Run of 2026-11-10: 6,855 videos, 23 channels, 293 seconds against 3,558 hours.
+- New animated card and result card, drawn from the results file by `scripts/render_cards.py`; a test fails if a published number is not in that file.
+- `signalforge.ingest` now takes the creator from the channel listing when a row has none.
+- Not done: no LLM run of the eval scenarios or trigger set, the yt-dlp channel listing was checked on a live run; the search-led commands are still starting points.
 
 ## 0.1.0 — 2026-11-08 (pre-release foundation)
 - Opt-in public GitHub repository discovery, independent research-attention scoring, and approval-gated candidate export.
