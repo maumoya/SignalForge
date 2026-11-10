@@ -24,7 +24,7 @@
   <rect x="283" y="476" width="166" height="39" rx="20" fill="#6cb7ff"/>
   <text x="366" y="502" font-size="17" fill="#1b2444" font-weight="750" text-anchor="middle">read-only leads</text>
   <rect x="458" y="476" width="155" height="39" rx="20" fill="#ffd15b"/>
-  <text x="535" y="502" font-size="17" fill="#29213c" font-weight="750" text-anchor="middle">23/23 CI tests</text>
+  <text x="535" y="502" font-size="17" fill="#29213c" font-weight="750" text-anchor="middle">48/48 tests</text>
   <rect x="80" y="548" width="220" height="38" rx="19" fill="#fff"/>
   <circle cx="104" cy="567" r="12" fill="#32a852"/><path d="M100 566l4 4 7-9" fill="none" stroke="#fff" stroke-width="2.5"/>
   <text x="125" y="574" fill="#251540" font-size="18" font-weight="600">Open Source · MIT</text>
@@ -38,7 +38,7 @@
   <g clip-path="url(#card-clip)">
     <rect x="728" y="202" width="490" height="53" fill="#1b1738"/>
     <circle cx="761" cy="228" r="7" fill="#fd6a68"/><circle cx="784" cy="228" r="7" fill="#ffc445"/><circle cx="807" cy="228" r="7" fill="#30d463"/>
-    <text x="1174" y="234" text-anchor="end" font-size="16" fill="#a5a0c8" font-family="monospace">signalforge · demo</text>
+    <text x="1004" y="234" text-anchor="end" font-size="16" fill="#a5a0c8" font-family="monospace">signalforge · demo</text>
   </g>
   <g font-family="'SFMono-Regular',Menlo,Consolas,monospace">
     <text x="763" y="290" font-size="17" fill="#e2d5ff">$ signalforge analyze sample.json</text>
