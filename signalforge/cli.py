@@ -9,11 +9,13 @@ def main(argv=None):
     ap.add_argument("input",type=Path)
     ap.add_argument("--out",type=Path,help="Write new JSON report (never overwrites)")
     ap.add_argument("--candidates",action="store_true",help="Export read-only proposal records")
+    ap.add_argument("--min-neighbors",type=int,default=5,help="Neighbors required to score a video (study protocol: 10)")
+    ap.add_argument("--drop-newest",type=int,default=0,help="Leave each creator's N newest uploads unscored (study protocol: 5)")
     args=ap.parse_args(argv)
     try:
         if not args.input.is_file() or args.input.is_symlink() or args.input.stat().st_size>15*1024*1024:
             raise SignalError("input missing, symlink, or over 15 MiB")
-        report=analyze(json.loads(args.input.read_text(encoding="utf-8")))
+        report=analyze(json.loads(args.input.read_text(encoding="utf-8")),minimum=args.min_neighbors,drop_newest=args.drop_newest)
         result=export_candidates(report) if args.candidates else report
         output=json.dumps(result,indent=2,ensure_ascii=False)+"\n"
         if args.out:

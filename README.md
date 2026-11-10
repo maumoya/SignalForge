@@ -27,7 +27,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, plus an **opt-in, read-only public GitHub repository search**. Native YouTube, Instagram, TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
+> **Current scope (v0.1 development foundation):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated workflow and 8× example use synthetic data.
 
 ## Install
 
@@ -48,6 +48,14 @@ python -m signalforge examples/sample.json
 python -m signalforge examples/sample.json --out report.json
 python -m signalforge examples/sample.json --candidates --out leads.json
 ```
+
+**Niche study: which title and hook rules hold across creators (offline, synthetic sample included):**
+```bash
+python -m signalforge examples/study/videos.json --min-neighbors 10 --drop-newest 5
+python -m signalforge.features examples/study/videos.json --hypotheses examples/study/hypotheses.json
+python -m signalforge.ingest all.jsonl --topic "your niche" --out videos.json   # yt-dlp JSON lines -> input JSON
+```
+You write the rules down first (`hypotheses.json`, dated), then the engine compares videos with and without each feature **inside the same creator**, and reports an effect size, a 95% interval, a false-discovery-adjusted q-value and a plain verdict: `rule`, `reversed`, `not supported`, `lead` or `insufficient data`. The full nine-step protocol is in [study-protocol.md](skills/signalforge/references/study-protocol.md).
 
 **Opt-in public GitHub discovery (sends only your search phrase to GitHub):**
 ```bash
@@ -96,7 +104,7 @@ That 8.0× example is synthetic, verified by the unit test `test_relative_baseli
 }
 ```
 
-Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier. No HTTP requests are made by the offline **video** engine.
+Missing dates, creator identities and view counts are reported as gaps, not guessed. At least five neighboring videos from the same creator and platform are required to compute a relative multiplier (`--min-neighbors` raises this; `--drop-newest N` leaves each creator's newest N uploads unscored because their views are still growing). Optional `hook` and `duration_seconds` fields are kept when present. No HTTP requests are made by the offline **video** engine.
 
 ## Results (measured 2026-11-09)
 
@@ -122,7 +130,8 @@ At that *instantaneous test rate*, a simple one-hour linear extrapolation is abo
 
 | Check | Observed result | Evidence |
 |---|---|---|
-| Python unit tests | **25/25 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/test_core.py) |
+| Python unit tests | **43/43 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/) |
+| Planted-effect recovery | Synthetic sample with a planted ×1.5 title effect returns **×1.46** (95% interval 1.34 to 1.59) | [sample generator](examples/study/make_sample.py), [test_study](tests/test_study.py) |
 | Required runtime dependencies | **0** | [pyproject.toml](pyproject.toml) |
 | Synthetic outlier check | **8.0×**, with 800 views / 100 baseline | [test_relative_baseline](tests/test_core.py) |
 | Read-only handoff | **Enabled**; adoption requires approval | [export schema](skills/signalforge/references/integration.md) |
@@ -149,14 +158,14 @@ python -m unittest discover -s tests -v
 bash scripts/lint_skill.sh
 ```
 
-Three [agent-evaluation scenarios](evals/) are included: relative virality, prompt-injection resistance and owner approval. **Their presence is not proof that an LLM has run or passed them.** `skill-forger-e2e` readiness and `your-authorship-skill` are wired into CI to surface release and ownership checks.
+Six [agent-evaluation scenarios](evals/) are included: relative virality, prompt-injection resistance, owner approval, pre-registered rules, fresh uploads and one-video honesty, plus 20 trigger queries. **Their presence is not proof that an LLM has run or passed them.** `skill-forger-e2e` readiness and `your-authorship-skill` are wired into CI to surface release and ownership checks.
 
 See [release gates](README_RELEASE_GATES.md), [validation](VALIDATION.md), [methodology](skills/signalforge/references/methodology.md), and [read-only integration](skills/signalforge/references/integration.md).
 
 ## Frequently asked questions
 
 ### Can it discover YouTube or Instagram videos by itself?
-Not in v0.1. Supply authorized video metadata as JSON. It **can** discover public GitHub repositories through a separate opt-in API call. Video collectors will need separate security and platform-rule review.
+Not by itself. Supply authorized video metadata as JSON, or collect public YouTube metadata yourself with the rate-limited `yt-dlp` commands in the study protocol and convert it with `python -m signalforge.ingest`. It **can** discover public GitHub repositories through a separate opt-in API call. Video collectors will need separate security and platform-rule review.
 
 ### Does it send my data to an AI model or cloud server?
 The video-analysis engine is offline and uses no cloud model. The optional GitHub discovery command sends the **public search phrase** to GitHub's API and receives public metadata; it does not send your local video datasets or secrets. If you run SignalForge through a separate AI agent, that agent's own privacy and model configuration still apply.

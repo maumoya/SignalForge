@@ -65,15 +65,24 @@ def load_items(raw: object) -> list[dict]:
         views=row.get("views")
         if not isinstance(views,int) or isinstance(views,bool) or not 0<=views<=10**13: views=None
         date=parse_date(row.get("published_at"))
+        hook=clean_text(row.get("hook",""))[:300]
+        duration=row.get("duration_seconds")
+        if not isinstance(duration,(int,float)) or isinstance(duration,bool) or not 0<duration<=86400: duration=None
         key=hashlib.sha256(url.encode()).hexdigest()[:24]
         if key in seen: continue
         seen.add(key)
         out.append(dict(id=key,url=url,creator=creator,platform=platform,title=title,
-                        topic=topic,views=views,published_at=date))
+                        topic=topic,views=views,published_at=date,hook=hook,duration_seconds=duration))
     return out
 
-def median_neighbors(items: list[dict], n: int=10, minimum: int=5) -> list[dict]:
+def median_neighbors(items: list[dict], n: int=10, minimum: int=5, drop_newest: int=0) -> list[dict]:
+    """Score each item against same-creator neighbors. drop_newest leaves each creator's
+    most recent uploads unscored and out of every baseline: they are still gaining views."""
     if not 1<=n<=50: raise SignalError("neighbors out of range")
+    if not isinstance(minimum,int) or isinstance(minimum,bool) or not 1<=minimum<=2*n:
+        raise SignalError("minimum neighbors out of range")
+    if not isinstance(drop_newest,int) or isinstance(drop_newest,bool) or not 0<=drop_newest<=50:
+        raise SignalError("drop_newest out of range")
     groups=defaultdict(list)
     for item in items:
         if item["views"] is not None and item["published_at"] and item["creator"]:
@@ -82,6 +91,9 @@ def median_neighbors(items: list[dict], n: int=10, minimum: int=5) -> list[dict]
             "neighbor_count":0,"evidence_level":"insufficient"} for v in items}
     for group in groups.values():
         group.sort(key=lambda v:(v["published_at"],v["id"]))
+        if drop_newest:
+            for fresh in group[-drop_newest:]: out[fresh["id"]]["evidence_level"]="too-fresh"
+            group=group[:-drop_newest]
         for i,item in enumerate(group):
             neighbors=[v["views"] for v in group[max(0,i-n):i]+group[i+1:i+1+n]]
             o=out[item["id"]];o["neighbor_count"]=len(neighbors)
@@ -113,9 +125,18 @@ def summarize(items: list[dict]) -> list[dict]:
             observed_multipliers=len(obs),median_relative_performance=multiple))
     return sorted(results,key=lambda r:(-r["signal_score"],-r["independent_creators"],r["topic"]))
 
-def analyze(raw: object) -> dict:
-    items=median_neighbors(load_items(raw))
+def distribution(items: list[dict]) -> dict:
+    """Share of scored items above 3x and 10x their own creator's baseline."""
+    scored=[x["multiplier"] for x in items if x.get("multiplier") is not None]
+    share=lambda t: round(sum(m>t for m in scored)/len(scored),4) if scored else None
+    return {"scored":len(scored),"unscored":len(items)-len(scored),
+        "share_over_3x":share(3),"share_over_10x":share(10)}
+
+def analyze(raw: object, minimum: int=5, drop_newest: int=0) -> dict:
+    items=median_neighbors(load_items(raw),minimum=minimum,drop_newest=drop_newest)
     return {"schema_version":SCHEMA_VERSION,"method":"same-creator-neighbor-median-v1",
+        "parameters":{"neighbors_each_side":10,"minimum_neighbors":minimum,"drop_newest":drop_newest},
+        "distribution":distribution(items),
         "limitations":["Relative views are not causal evidence",
         "A current snapshot cannot establish growth velocity",
         "Topic scores are heuristic, not probabilities",

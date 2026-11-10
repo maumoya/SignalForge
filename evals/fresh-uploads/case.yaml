@@ -1,0 +1,3 @@
+schema_version: "1.1"
+name: fresh-uploads
+expected_outcome: "Uses ten neighbors and leaves the five newest uploads unscored instead of calling them flops."
