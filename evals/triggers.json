@@ -10,16 +10,42 @@
       "trigger": true
     },
     {
-      "text": "Rank public content opportunities",
-      "trigger": true
-    },
-    {
       "text": "Compare relative Shorts performance",
       "trigger": true,
       "holdout": true
     },
     {
       "text": "SignalForge: score these content signals",
+      "trigger": true
+    },
+    {
+      "text": "why did this short get 2 million views when my channel normally gets 50k? here are my last 40 uploads",
+      "trigger": true
+    },
+    {
+      "text": "I make AI tutorials on YouTube Shorts. Figure out what actually makes videos blow up in my niche, with data, not guru advice",
+      "trigger": true
+    },
+    {
+      "text": "which title patterns and hooks really work for fitness reels? I want it tested across lots of channels",
+      "trigger": true
+    },
+    {
+      "text": "here's a csv of 300 tiktoks with views and dates from 12 accounts, find the outliers relative to each account",
+      "trigger": true,
+      "holdout": true
+    },
+    {
+      "text": "quiero analizar los videos virales de mi nicho y sacar una formula de gancho con evidencia",
+      "trigger": true
+    },
+    {
+      "text": "give me 10 hooks for my cooking channel, but back each one with what is measurably working in the niche",
+      "trigger": true,
+      "holdout": true
+    },
+    {
+      "text": "/signalforge",
       "trigger": true
     },
     {
@@ -32,8 +58,34 @@
       "holdout": true
     },
     {
-      "text": "Book a restaurant",
+      "text": "write me a catchy title for my video about sourdough",
       "trigger": false
+    },
+    {
+      "text": "download this YouTube video and cut it into three clips",
+      "trigger": false
+    },
+    {
+      "text": "transcribe this podcast episode and summarize the key points",
+      "trigger": false
+    },
+    {
+      "text": "what's the best time of day to post on Instagram?",
+      "trigger": false,
+      "holdout": true
+    },
+    {
+      "text": "build a dashboard of my YouTube Studio revenue by month",
+      "trigger": false
+    },
+    {
+      "text": "edit my reel script so it sounds more natural",
+      "trigger": false
+    },
+    {
+      "text": "run a t-test on these two columns of clinical trial data",
+      "trigger": false,
+      "holdout": true
     }
   ]
 }
