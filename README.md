@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/header.svg" alt="SignalForge by Mauricio Moya: Spot the signal. Build what matters. Evidence-backed insights, no blind adoption." width="100%">
+  <img src="assets/header.png" alt="SignalForge by Mauricio Moya: Spot the signal. Build what matters. Evidence-backed insights, no blind adoption." width="100%">
 </p>
 
 <p align="center">
