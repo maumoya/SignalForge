@@ -7,7 +7,7 @@ Standard library only. Patterns and titles are data; nothing here executes them.
 """
 from __future__ import annotations
 import argparse,json,math,re,sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from .core import SignalError,load_items,median_neighbors
 
@@ -105,7 +105,8 @@ def run_hypotheses(raw_items: object, raw_hypotheses: object, minimum: int=10, d
     return {"schema_version":SCHEMA,"method":"creator-fixed-effects-log-multiplier-v1","registered_at":registered,
         "parameters":{"minimum_neighbors":minimum,"drop_newest":drop_newest,"min_feature_videos":MIN_FEATURE_VIDEOS,
             "min_videos_per_side_per_creator":MIN_PER_SIDE,"false_discovery_rate":0.05},
-        "videos_scored":len(items),"creators":len({x["creator"] for x in items}),
+        "videos_scored":len(items),
+        "hook_sources":dict(sorted(Counter(x["hook_source"] for x in items if x.get("hook")).items())),"creators":len({x["creator"] for x in items}),
         "limitations":["Associations inside creators are not causal evidence",
             "Normal-approximation p-values are optimistic with fewer than about 30 creators",
             "Regex features mislabel some titles; read review_examples before trusting a row",
