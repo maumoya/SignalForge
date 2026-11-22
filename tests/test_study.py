@@ -57,6 +57,16 @@ class HypothesisTests(unittest.TestCase):
         r=run_hypotheses([item(i) for i in range(30)],{"registered_at":"2026-11-10",
             "hypotheses":[{"id":"h","field":"hook","pattern":"stop","direction":"up"}]})["hypotheses"][0]
         self.assertEqual((r["videos_tested"],r["verdict"]),(0,"insufficient data"))
+    def test_hook_source_kept_and_defaults_to_captions(self):
+        rows=[{**item(0),"hook":"Stop","hook_source":"speech"},{**item(1),"hook":"Stop","hook_source":"SCREEN"},
+              {**item(2),"hook":"Stop"},{**item(3),"hook":"Stop","hook_source":"rumor"},{**item(4),"hook_source":"speech"}]
+        r=analyze(rows)["items"]
+        self.assertEqual([x["hook_source"] for x in r],["speech","screen","captions","captions",None])
+    def test_report_counts_hooks_by_source(self):
+        rows=[{**item(i),"hook":"Stop now","hook_source":"speech" if i%3==0 else "captions"} for i in range(30)]
+        r=run_hypotheses(rows,{"registered_at":"2026-11-22","hypotheses":[{"id":"h","field":"hook","pattern":"stop","direction":"up"}]})
+        self.assertEqual(sum(r["hook_sources"].values()),r["videos_scored"])
+        self.assertEqual(set(r["hook_sources"]),{"captions","speech"})
     def test_registration_date_and_shape_required(self):
         ok={"id":"a","pattern":"x","direction":"up"}
         for bad in ({"hypotheses":[ok]},{"registered_at":"yesterday","hypotheses":[ok]},

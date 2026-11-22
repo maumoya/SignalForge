@@ -35,6 +35,8 @@ def safe_url(value: str) -> str:
     except ValueError as exc:
         raise SignalError("invalid URL") from exc
 
+HOOK_SOURCES=("captions","speech","screen")
+
 def clean_text(value: object) -> str:
     if not isinstance(value,str): return ""
     text=re.sub(r"[\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]","",value)
@@ -66,13 +68,15 @@ def load_items(raw: object) -> list[dict]:
         if not isinstance(views,int) or isinstance(views,bool) or not 0<=views<=10**13: views=None
         date=parse_date(row.get("published_at"))
         hook=clean_text(row.get("hook",""))[:300]
+        source=clean_text(row.get("hook_source","")).lower()
+        hook_source=(source if source in HOOK_SOURCES else "captions") if hook else None
         duration=row.get("duration_seconds")
         if not isinstance(duration,(int,float)) or isinstance(duration,bool) or not 0<duration<=86400: duration=None
         key=hashlib.sha256(url.encode()).hexdigest()[:24]
         if key in seen: continue
         seen.add(key)
         out.append(dict(id=key,url=url,creator=creator,platform=platform,title=title,
-                        topic=topic,views=views,published_at=date,hook=hook,duration_seconds=duration))
+                        topic=topic,views=views,published_at=date,hook=hook,hook_source=hook_source,duration_seconds=duration))
     return out
 
 def median_neighbors(items: list[dict], n: int=10, minimum: int=5, drop_newest: int=0) -> list[dict]:

@@ -28,7 +28,7 @@
 
 **The promise:** find what deserves investigation, with inspectable evidence. Not another black-box “viral score.” Not automatic software installation. Not a claim that popularity proves value.
 
-> **Current scope (v0.2.0):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated card and the Results section show a run on real public videos; the 8× walk-through below is a small worked example.
+> **Current scope (v0.2.1):** analyzes user-provided video JSON **offline**, tests your own pre-registered title and hook rules across creators, plus an **opt-in, read-only public GitHub repository search**. Collection is not built in: for YouTube the skill gives rate-limited `yt-dlp` starting commands that you run and approve yourself, and a converter for their output. Instagram and TikTok collection, longitudinal growth measurements, automatic evidence verification and live VISION integration are **not implemented yet**. The animated card and the Results section show a run on real public videos; the 8× walk-through below is a small worked example.
 
 ## Install
 
@@ -135,7 +135,7 @@ python3 scripts/real_benchmark.py --channels benchmarks/channels.txt --hypothese
 
 | Check | Observed result | Evidence |
 |---|---|---|
-| Python unit tests | **48/48 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/) |
+| Python unit tests | **50/50 pass** | [GitHub CI](https://github.com/maumoya/SignalForge/actions/workflows/test.yml), [test cases](tests/) |
 | Published numbers match the results file | **Enforced in CI** | [test_published_results](tests/test_published_results.py) |
 | Known-answer check | A sample with a ×1.5 title effect built in returns **×1.46** (95% interval 1.34 to 1.59) | [sample generator](examples/study/make_sample.py), [test_study](tests/test_study.py) |
 | Required runtime dependencies | **0** | [pyproject.toml](pyproject.toml) |

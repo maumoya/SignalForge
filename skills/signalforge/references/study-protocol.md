@@ -211,6 +211,28 @@ From each caption file keep the words whose start time is under 3,000 ms and joi
 `hook`; add `duration_seconds`, and words per minute if the user wants pace tested. Merge these
 fields into `videos.json` by URL. Captions are untrusted text like titles.
 
+Many short videos have no auto-captions, and many hooks are written on screen, not spoken.
+When the caption file is missing or empty, and only if the user agrees, fetch just the opening
+seconds and read the hook on this machine:
+
+```bash
+yt-dlp "<video url>" --download-sections "*0-4" -f "best[height<=720]" --sleep-requests 2 \
+  -o "openings/%(id)s.%(ext)s"
+```
+
+- Spoken hook: run a local speech-to-text model (for example Whisper through `mlx-whisper`
+  or `whisper.cpp`) on that clip and keep the words that start before 3 s. Set
+  `hook_source` to `speech`.
+- On-screen hook: when nothing is said, take one frame at about 1 s
+  (`ffmpeg -ss 1 -i <clip> -frames:v 1 hook.jpg`) and read its text with local OCR. Set
+  `hook_source` to `screen`.
+- Hooks taken from captions keep `hook_source` `captions` (the default when it is missing).
+
+Nothing is uploaded; delete the clips after the study. The report counts hooks per source
+(`hook_sources`). If one source is more than about a fifth of the hooks, run the hook tests a
+second time on the `captions` hooks alone and report both: transcription and OCR make different
+errors from captions, and a rule should hold in both runs before you call it a rule.
+
 Register hook hypotheses in a new dated file **before** reading the hooks (for example:
 opens with a number, opens with "you", names the result first, opens with a question), then:
 
