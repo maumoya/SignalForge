@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-11-22
+- Hooks for videos without captions: the study protocol now reads the hook from the first seconds on this machine, by local speech-to-text when it is spoken or by local OCR of one frame when it is written on screen. Only the opening seconds are fetched, nothing is uploaded.
+- New optional input field `hook_source` (`captions`, `speech` or `screen`; `captions` when missing). Hypothesis reports now count hooks per source in `hook_sources`, and the protocol asks for a captions-only rerun when other sources make up more than about a fifth of the hooks.
+- Docs: Best Practices and release badges, header chip, and plugin directory readiness (icon, README).
+- Two new unit tests. Defaults and existing outputs are unchanged apart from the new fields.
+
 ## 0.2.0 — 2026-11-10
 - First signed release: annotated SSH-signed tag, SLSA provenance, branch ruleset on main, private vulnerability reporting.
 - Skill rewritten around a nine-step niche study: search-led sampling, channel filters, same-creator multipliers, pre-registered title and hook rules, a fixed report template and a list of mistakes to stop.
